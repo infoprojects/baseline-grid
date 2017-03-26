@@ -1,0 +1,19 @@
+{
+  "name": "baseline-grid",
+  "version": "0.0.1",
+  "description": "Responsive fluid grid system",
+  "main": "baseline.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infoprojects-nl/baseline-grid.git"
+  },
+  "author": "InfoProjects B.V.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/infoprojects-nl/baseline-grid/issues"
+  },
+  "homepage": "https://github.com/infoprojects-nl/baseline-grid#readme"
+}
