@@ -2,27 +2,7 @@
 $grid-mq-small: 519px;
 $grid-mq-medium: 999px;
 
-.grid-wrapper {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-.grid-container {
-  margin: 0 auto;
-}
-
-.grid-blok {
-  position: relative;
-}
-
-.clear {
-  clear: both;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-}
+@import "grid";
 
 @media screen and (max-width: #{$grid-mq-small}) {
   @import "small";

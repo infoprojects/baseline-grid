@@ -1,6 +1,16 @@
 # Baseline grid
 
-Simple example:
+## Prerequisites
+
+* `nodejs` en `yarn`
+
+Use `npm` to install `yarn`:
+
+```
+> npm install yarn
+```
+
+## Simple example
 
 ```html
 <div class="grid-wrapper wrapper_12">
@@ -21,4 +31,14 @@ Simple example:
     </div>
   </div>
 </div>
+```
+
+## Getting started
+
+```
+> yarn install
+```
+
+```
+> yarn sass
 ```
