@@ -1,0 +1,37 @@
+// breakpoints waarmee de css werkt
+$grid-mq-small: 519px;
+$grid-mq-medium: 999px;
+
+.grid-wrapper {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.grid-container {
+  margin: 0 auto;
+}
+
+.grid-blok {
+  position: relative;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
+
+@media screen and (max-width: #{$grid-mq-small}) {
+  @import "small";
+}
+
+@media screen and (max-width: #{$grid-mq-small} + 1) and (min-width: #{$grid-mq-medium}) {
+  @import "medium";
+}
+
+@media screen and (min-width: #{$grid-mq-medium + 1}) {
+  @import "large";
+}
