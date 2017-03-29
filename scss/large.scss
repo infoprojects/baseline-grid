@@ -69,11 +69,11 @@ $zone-sizes: 12, 9, 6, 3;
       }
 
       .grid-blok.prefix_#{$sub-size} {
-        padding-left: span($sub-size);
+        margin-left: span($sub-size);
       }
 
       .grid-blok.suffix_#{$sub-size} {
-        padding-right: span($sub-size);
+        margin-right: span($sub-size);
       }
     }
   }
