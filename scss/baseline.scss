@@ -8,7 +8,7 @@ $grid-mq-medium: 999px;
   @import "small";
 }
 
-@media screen and (max-width: #{$grid-mq-small} + 1) and (min-width: #{$grid-mq-medium}) {
+@media screen and (min-width: #{$grid-mq-small} + 1) and (max-width: #{$grid-mq-medium}) {
   @import "medium";
 }
 
