@@ -39,11 +39,11 @@ $zone-sizes: 12, 9, 6, 3;
 
   @for $blok-size from 1 through (12 - $zone-size) {
     .grid-zone.push_#{$blok-size} {
-      left: span($blok-size);
+      left: span($blok-size of $zone-size);
     }
 
     .grid-zone.pull_#{$blok-size} {
-      left: -1 * span($blok-size);
+      left: -1 * span($blok-size of $zone-size);
     }
   }
 
@@ -61,19 +61,19 @@ $zone-sizes: 12, 9, 6, 3;
 
     @for $sub-size from 1 through 12 {
       .grid-blok.push_#{$sub-size} {
-        left: span($sub-size);
+        left: span($sub-size of $zone-size);
       }
 
       .grid-blok.pull_#{$sub-size} {
-        left: -1 * span($sub-size);
+        left: -1 * span($sub-size of $zone-size);
       }
 
       .grid-blok.prefix_#{$sub-size} {
-        margin-left: span($sub-size);
+        margin-left: span($sub-size of $zone-size);
       }
 
       .grid-blok.suffix_#{$sub-size} {
-        margin-right: span($sub-size);
+        margin-right: span($sub-size of $zone-size);
       }
     }
   }
