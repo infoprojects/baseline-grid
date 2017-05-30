@@ -39,11 +39,11 @@ $zone-sizes: 12, 9, 6, 3;
 
   @for $blok-size from 1 through (12 - $zone-size) {
     .grid-zone.push_#{$blok-size} {
-      left: span($blok-size of $zone-size);
+      left: span($blok-size);
     }
 
     .grid-zone.pull_#{$blok-size} {
-      left: -1 * span($blok-size of $zone-size);
+      left: -1 * span($blok-size);
     }
   }
 
