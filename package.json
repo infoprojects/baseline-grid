@@ -1,6 +1,6 @@
 {
   "name": "@infoprojects-nl/baseline-grid",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Responsive fluid grid system",
   "main": "baseline.scss",
   "scripts": {
