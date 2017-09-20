@@ -33,7 +33,7 @@ $susy: (
         margin-right: 0;
         padding-left: calc((100% - #{$grid-bp-medium}) / 2);
         padding-right: calc((100% - #{$grid-bp-medium}) / 2);
-        width: auto;
+        width: 100%;
       }
     }
   }
