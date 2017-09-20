@@ -27,6 +27,14 @@ $susy: (
       margin-left: calc((100% - #{$grid-bp-medium}) / 2);
       margin-right: calc((100% - #{$grid-bp-medium}) / 2);
       width: $grid-bp-medium;
+
+      &.breakout-zone {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: calc((100% - #{$grid-bp-medium}) / 2);
+        padding-right: calc((100% - #{$grid-bp-medium}) / 2);
+        width: auto;
+      }
     }
   }
 }
