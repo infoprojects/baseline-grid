@@ -1,0 +1,31 @@
+$baseline-impl: (
+  columns-large: 15,
+  columns-medium: 12,
+  columns-small: 3,
+  grid-zones: (15, 12, 9, 6, 3)
+);
+
+.grid_15 {
+  background-color: lightcoral;
+}
+.grid_12 {
+  background-color: lightblue;
+}
+.grid_9 {
+  background-color: lightgray;
+}
+.grid_6 {
+  background-color: lightpink;
+}
+.grid_3 {
+  background-color: lightgreen;
+}
+
+
+.hide {
+  display: none;
+}
+
+
+
+@import "mixins/baseline-grid";

@@ -1,45 +1,34 @@
 @import "susy";
-
-$grid-bp-medium: 480px;
+@import "maptovars";
 
 $susy: (
   container: $grid-bp-medium,
-  columns: 6,
-  gutters: 20px/80px,
+  columns: $columns-medium,
+  gutters: $gutters,
+  column-width: $column-width,
+  gutter-position: $gposition,
   global-box-sizing: content-box,
-  math: fluid,
-  output: float,
-  column-width: 80px,
-  gutter-position: inside-static
 );
 
-.wrapper_12 {
-  max-width: 480px;
+.wrapper_#{$columns-medium} {
+  max-width: $wrapper-m;
 }
 
-.container_12 {
-  @include container;
+.container_#{$columns-medium} {
+  @include container();
 
   &.breakout-container {
     max-width: 100%;
 
-    .grid-zone.grid_12 {
+    .grid-zone.grid_#{$columns-medium} {
       margin-left: calc((100% - #{$grid-bp-medium}) / 2);
       margin-right: calc((100% - #{$grid-bp-medium}) / 2);
       width: $grid-bp-medium;
-
-      &.breakout-zone {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: calc((100% - #{$grid-bp-medium}) / 2);
-        padding-right: calc((100% - #{$grid-bp-medium}) / 2);
-        width: 100%;
-      }
     }
   }
 }
 
-$zone-sizes: 12, 9, 6;
+$zone-sizes: $grid-zones;
 @each $zone-size in $zone-sizes {
   .grid-zone.grid_#{$zone-size} {
     @include span(6 of 6 no-gutter);

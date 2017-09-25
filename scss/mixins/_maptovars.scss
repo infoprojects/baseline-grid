@@ -1,0 +1,29 @@
+@import "baseline-default";
+
+$baseline: map-merge($baseline-default, $baseline-impl);
+
+$grid-bp-large: mag-get($baseline, grid-bp-large);
+$grid-bp-medium: map-get($baseline, grid-bp-medium);
+$grid-bp-small: map-get($baseline, grid-bp-small);
+
+$grid-mq-medium: map-get($baseline, grid-mq-medium);
+$grid-mq-small: map-get($baseline, grid-mq-small);
+
+$column-width: map-get($baseline, column-width);
+$columns-large: map-get($baseline, columns-large);
+$columns-medium: map-get($baseline, columns-medium);
+$columns-small: map-get($baseline, columns-small);
+
+$gposition: map-get($baseline, gutter-position);
+$gutters: map-get($baseline, gutters);
+
+$break-sm: map-get($baseline, brakpoint-sm);
+$break-ml: map-get($baseline, breakpoint-ml);
+
+$wrapper-l: map-get($baseline, wrapper-l);
+$wrapper-m: map-get($baseline, wrapper-m);
+
+$math: map-get($baseline, math);
+$output: map-get($baseline, output);
+
+$grid-zones: map-get($baseline, grid-zones);

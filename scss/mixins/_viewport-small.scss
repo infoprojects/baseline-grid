@@ -1,22 +1,20 @@
 @import "susy";
-
-$grid-bp-small: 320px;
+@import "maptovars";
 
 $susy: (
   container: $grid-bp-small,
-  columns: 3,
-  gutters: 20px/80px,
+  columns: $columns-small,
+  gutters: $gutters,
+  column-width: $column-width,
+  gutter-position: $gposition,
   global-box-sizing: content-box,
-  math: fluid,
-  output: float,
-  gutter-position: inside
 );
 
-.container_12 {
-  @include container;
+.container_#{$columns-small} {
+  @include container();
 }
 
-$zone-sizes: 12, 9, 6, 3;
+$zone-sizes: $grid-zones;
 @each $zone-size in $zone-sizes {
   .grid-zone.grid_#{$zone-size} {
     @include span(3 of 3 no-gutter);
