@@ -1,19 +1,12 @@
 $baseline-default: (
+  container-size: 960px,
+  greatest-column: 12,
   columns-large: 12,
   columns-medium: 6,
   columns-small: 3,
-  gutters: 20px/80px,
-  gutter-position: inside-static,
-  grid-bp-large: 960px,
-  grid-bp-medium: 480px,
-  grid-bp-small: 320px,
   grid-mq-small: 539px,
   grid-mq-medium: 1039px,
   column-width: 80px,
-  wrapper-l: 1400px,
-  wrapper-m: 480px,
-  breakpoint-sm: 539px,
-  breakpoint-ml: 1039px,
   grid-zones: (12, 9, 6, 3),
   grid-block: (12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)
 );

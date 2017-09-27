@@ -1,0 +1,176 @@
+@import "susy";
+@import "maptovars";
+
+$container-size: $current-columns * $column-width;
+
+$susy: (
+  container: $container-size,
+  columns: $current-columns,
+  gutters: 20px/80px,
+  column-width: $column-width,
+  wrapper: 1400px,
+  global-box-sizing: content-box,
+  gutter-position: inside-static
+);
+
+ .wrapper_#{$columns-large} {
+   max-width: 1400px;
+ }
+
+.container_#{$columns-large} {
+  @include container();
+
+  &.breakout-container {
+    max-width: 100%;
+
+    .grid-zone.grid_#{$columns-large} {
+      margin-left: calc((100% - #{$container-size}) / 2);
+      margin-right: calc((100% - #{$container-size}) / 2);
+      width: $container-size;
+    }
+  }
+}
+
+$zone-sizes: $grid-zones;
+@each $zone-index in $zone-sizes {
+  .grid-zone.grid_#{$zone-index} {
+    @if $zone-index <= $current-columns {
+      @include span($zone-index of $current-columns no-gutter);
+    }
+  }
+  @if $zone-index > $current-columns {
+    .grid-zone.grid_#{$zone-index} {
+      @include span($current-columns of $current-columns no-gutter);
+    }
+  }
+
+  @if $zone-index <= $current-columns {
+    @for $blok-index from 1 through ($current-columns - $zone-index) {
+      .grid-zone.push_#{$blok-index} {
+        left: span($blok-index);
+      }
+
+      .grid-zone.pull_#{$blok-index} {
+        left: -1 * span($blok-index);
+      }
+    }
+  }
+
+  .grid-zone.grid_#{$zone-index} {
+    @for $blok-index from 1 through $zone-index {
+      .grid-blok.grid_#{$blok-index} {
+        @include span($blok-index of $zone-index no-gutter);
+
+        > .grid-element {
+          @include span($blok-index of $blok-index);
+        }
+      }
+    }
+    @if $container-size >= 960 {
+      @for $sub-index from 1 through 12 {
+        .grid-blok.push_#{$sub-index} {
+          left: span($sub-index of $zone-index);
+          color: red;
+        }
+
+        .grid-blok.pull_#{$sub-index} {
+          left: -1 * span($sub-index of $zone-index);
+          color: red;
+        }
+
+        .grid-blok.prefix_#{$sub-index} {
+          margin-left: span($sub-index of $zone-index);
+          color: red;
+        }
+
+        .grid-blok.suffix_#{$sub-index} {
+          margin-right: span($sub-index of $zone-index);
+          color: red;
+        }
+      }
+    }
+  }
+}
+//---
+
+@if $current-columns == $columns-medium and $current-columns != $columns-small {
+  @each $zone-index in $zone-sizes {
+    .grid-zone.grid_#{$zone-index} {
+      @include span($current-columns of $current-columns no-gutter);
+
+      @for $blok-index from 1 through $zone-index {
+        .grid-blok.grid_#{$blok-index} {
+          @include span($current-columns of $current-columns no-gutter);
+
+          > .grid-element {
+            @include span($current-columns of $current-columns);
+          }
+        }
+      }
+
+      @for $blok-index from 1 through $current-columns {
+        .grid-blok.grid_#{$blok-index} {
+          @include span($blok-index of $current-columns no-gutter);
+
+          > .grid-element {
+            @include span($blok-index of $blok-index);
+          }
+        }
+      }
+    }
+
+    @if $container-size < 320px {
+      @if $zone-index < 4 and $zone-index > 2 {
+        .grid-zone.grid_12 .grid-blok.grid_3 {
+          @include span($current-columns of $current-columns no-gutter);
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  $zone-sizes: 3;
+  @each $zone-index in $zone-sizes {
+    .grid-zone.grid_#{$zone-index} {
+      @include span(6 of 6 no-gutter);
+
+      @for $blok-index from 1 through $zone-index {
+        .grid-blok.grid_#{$blok-index} {
+          @include span($blok-index of $zone-index no-gutter);
+
+          > .grid-element {
+            @include span($blok-index of $blok-index);
+          }
+        }
+      }
+    }
+  }
+}
+
+@if $current-columns == $columns-small and $current-columns != $columns-medium {
+  @each $zone-size in $zone-sizes {
+    .grid-zone.grid_#{$zone-size} {
+      @include span(3 of 3 no-gutter);
+
+      @for $blok-size from 4 through $zone-size {
+        .grid-blok.grid_#{$blok-size} {
+          @include span(3 of 3 no-gutter);
+
+          > .grid-element {
+            @include span(3 of 3);
+          }
+        }
+      }
+
+      @for $blok-size from 1 through 3 {
+        .grid-blok.grid_#{$blok-size} {
+          @include span($blok-size of 3 no-gutter);
+
+          > .grid-element {
+            @include span($blok-size of $blok-size);
+          }
+        }
+      }
+    }
+  }
+}

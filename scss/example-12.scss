@@ -1,0 +1,47 @@
+ $baseline-impl: (
+  grid-mq-small: 539px,
+  grid-mq-medium: 1039px,
+  columns-large: 12,
+  columns-medium: 6,
+  columns-small: 3,
+  grid-zones: (12, 9, 6, 3),
+  grid-block: (12, 11, 10, 9, 8, 7, 6, 5, 4)
+);
+
+  
+
+.grid_15 {
+  background-color: lightcoral;
+}
+.grid_12 {
+  background-color: lightslategrey;
+}
+.grid_9 {
+  background-color: lightgray;
+}
+.grid_6 {
+  background-color: lightpink;
+}
+.grid_5 {
+  background-color: darkcyan;
+}
+
+.grid_4 {
+  background-color: darkgray;
+}
+
+.grid_3 {
+  background-color: lightyellow;
+}
+
+.grid_2 {
+  background-color: lightgreen;
+}
+
+.grid_1 {
+  background-color: lightblue;
+}
+
+
+@import "mixins/baseline-loader";
+
