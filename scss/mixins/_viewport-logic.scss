@@ -1,6 +1,7 @@
 @import "susy";
 @import "maptovars";
 
+
 $container-size: $current-columns * $column-width;
 
 $susy: (
@@ -70,22 +71,18 @@ $zone-sizes: $grid-zones;
       @for $sub-index from 1 through 12 {
         .grid-blok.push_#{$sub-index} {
           left: span($sub-index of $zone-index);
-          color: red;
         }
 
         .grid-blok.pull_#{$sub-index} {
           left: -1 * span($sub-index of $zone-index);
-          color: red;
         }
 
         .grid-blok.prefix_#{$sub-index} {
           margin-left: span($sub-index of $zone-index);
-          color: red;
         }
 
         .grid-blok.suffix_#{$sub-index} {
           margin-right: span($sub-index of $zone-index);
-          color: red;
         }
       }
     }

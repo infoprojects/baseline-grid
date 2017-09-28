@@ -2,7 +2,6 @@
 
 $baseline: map-merge($baseline-default, $baseline-impl);
 
-$container-size: map-get($baseline, container-size);
 $greatest-column: map-get($baseline, greatest-column);
 
 $grid-mq-medium: map-get($baseline, grid-mq-medium);
