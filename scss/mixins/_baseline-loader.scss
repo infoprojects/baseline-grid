@@ -1,22 +1,23 @@
-@import "maptovars";
-@import "grid-settings";
-@import "debugcolors";
+@import 'maptovars';
+@import 'grid-settings';
+@import 'debugcolors';
 
-//! small
+
+
 @media screen and (max-width: $grid-mq-small) {
   $current-columns: $columns-small;
-  @import "viewport-logic";
+  @import 'viewport-logic';
 }
 
-//! medium
+
 @media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
   $current-columns: $columns-medium;
-  @import "viewport-logic";
+  @import 'viewport-logic';
 }
 
-//! large
+
 @media screen and (min-width: $grid-mq-medium + 1) {
   $current-columns: $columns-large;
-  @import "viewport-logic";
-  @import "large-logic";
+  @import 'viewport-logic';
+  @import 'large-logic';
 }
