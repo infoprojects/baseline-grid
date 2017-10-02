@@ -13,7 +13,7 @@ function resolvePath(pathInput) {
 
 gulp.task('build-sass', function () {
   return (gulp
-    .src('**/**.scss', { cwd: resolvePath(paths().source.scss) })
+    .src('**/*.scss', { cwd: resolvePath(paths().source.scss) })
     .pipe(
       sass({
         includePaths: ['node_modules/susy/sass']

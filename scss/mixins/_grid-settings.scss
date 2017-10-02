@@ -1,0 +1,24 @@
+.grid-wrapper {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.grid-container {
+  margin: 0 auto;
+}
+
+.grid-blok,
+.grid-zone {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+}
