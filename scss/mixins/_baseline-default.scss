@@ -1,10 +1,9 @@
 $baseline-default: (
-  greatest-column: 12,
-  columns-large: 12,
-  columns-medium: 6,
-  columns-small: 3,
-  grid-mq-small: 539px,
-  grid-mq-medium: 1039px,
   column-width: 80px,
+  grid-mq-small: 480px,
+  grid-mq-medium: 768px,
+  columns-small: 3,
+  columns-medium: 6,
+  columns-large: 12,
   grid-zones: (12, 9, 6, 3),
 );

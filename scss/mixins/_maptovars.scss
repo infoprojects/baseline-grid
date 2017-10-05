@@ -1,8 +1,8 @@
-@import "baseline-default";
+@import 'baseline-default';
 
 $baseline: map-merge($baseline-default, $baseline-impl);
 
-$greatest-column: map-get($baseline, greatest-column);
+$column-width: map-get($baseline, column-width);
 
 $grid-mq-medium: map-get($baseline, grid-mq-medium);
 $grid-mq-small: map-get($baseline, grid-mq-small);
@@ -11,8 +11,4 @@ $columns-large: map-get($baseline, columns-large);
 $columns-medium: map-get($baseline, columns-medium);
 $columns-small: map-get($baseline, columns-small);
 
-$column-width: map-get($baseline, column-width);
-
 $grid-zones: map-get($baseline, grid-zones);
-$grid-block: map-get($baseline, grid-block);
-

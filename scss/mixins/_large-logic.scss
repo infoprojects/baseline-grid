@@ -1,0 +1,31 @@
+@each $zone-index in $grid-zones { 
+  .grid-zone.push_#{$zone-index} {
+    left: span($zone-index);
+  }
+
+  .grid-zone.pull_#{$zone-index} {
+    left: -1 * span($zone-index);
+  }
+  .grid-zone.grid_#{$zone-index} {
+    
+      @for $sub-index from 1 through $columns-large {
+        .grid-blok.push_#{$sub-index} {
+          left: span($sub-index of $zone-index);
+        }
+        
+        .grid-blok.pull_#{$sub-index} {
+          left: -1 * span($sub-index of $zone-index);
+        }
+        
+        .grid-blok.prefix_#{$sub-index} {
+          margin-left: span($sub-index of $zone-index);
+        }
+        
+        .grid-blok.suffix_#{$sub-index} {
+          margin-right: span($sub-index of $zone-index);
+        }
+      }
+  }
+}
+
+

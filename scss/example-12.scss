@@ -1,11 +1,10 @@
  $baseline-impl: (
-  grid-mq-small: 539px,
-  grid-mq-medium: 1039px,
   columns-large: 12,
   columns-medium: 6,
   columns-small: 3,
+  wrapper-width: 980px,
   grid-zones: (12, 9, 6, 3),
 );
 
-@import "mixins/baseline-loader";
+@import 'mixins/baseline-loader';
 
