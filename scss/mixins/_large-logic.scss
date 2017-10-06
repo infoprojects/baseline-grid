@@ -7,7 +7,6 @@
     left: -1 * span($zone-index);
   }
   .grid-zone.grid_#{$zone-index} {
-    
       @for $sub-index from 1 through $columns-large {
         .grid-blok.push_#{$sub-index} {
           left: span($sub-index of $zone-index);
@@ -27,5 +26,3 @@
       }
   }
 }
-
-

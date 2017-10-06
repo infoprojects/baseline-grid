@@ -2,19 +2,15 @@
 @import 'grid-settings';
 @import 'debugcolors';
 
-
-
 @media screen and (max-width: $grid-mq-small) {
   $current-columns: $columns-small;
   @import 'viewport-logic';
 }
 
-
 @media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
   $current-columns: $columns-medium;
   @import 'viewport-logic';
 }
-
 
 @media screen and (min-width: $grid-mq-medium + 1) {
   $current-columns: $columns-large;
