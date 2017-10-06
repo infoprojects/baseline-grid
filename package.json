@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/infoprojects-nl/baseline-grid#readme",
   "dependencies": {
+    "pug": "^2.0.0-rc.4",
     "susy": "^2.2.12"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-pug": "^3.3.0"
   }
 }
