@@ -58,8 +58,9 @@ $susy: (
     .grid-zone.grid_#{$zone-index} {
       width: 100%;
       @for $blok-index from 1 through $current-columns {
+    
         .grid-blok.grid_#{$blok-index} {
-          @include span($blok-index of $current-columns);
+          @include span($blok-index of $current-columns  no-gutter);
 
           > .grid-element {
             @include span($blok-index of $blok-index);

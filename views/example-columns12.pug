@@ -1,0 +1,57 @@
+doctype html
+html
+
+  head
+    title grid_12
+    link(rel="stylesheet", href="../css/example-12.css")
+
+  body
+    .grid-wrapper.wrapper_12
+      .grid-container.container_12
+        .grid-zone.grid_12
+          .grid-blok.grid_12
+            .grid-element
+              .grid-edge 
+                .grid-title
+                  h2 grid_12
+                .grid-inside
+                  p blok grid_12
+          - for (var x = 1; x <= 2; x++)
+            .grid-blok.grid_6
+              .grid-element
+                .grid-edge
+                  .grid-title
+                    h2 grid_6
+                  .grid-inside
+                    p blok grid_6
+          .grid-blok.grid_3
+            .grid-element
+              .grid-edge
+                .grid-title
+                  h2 grid_3
+                .grid-inside
+                  p blok grid_3
+          .grid-blok.grid_9
+            .grid-element
+              .grid-edge
+                .grid-title
+                  h2 grid_9
+                .grid-inside
+                  p blok grid_9
+        .grid-zone.grid_6
+          .grid-blok.grid_6
+            .grid-element
+              .grid-edge
+                .grid-title
+                  h2 grid_6
+                .grid-inside
+                  p blok grid_6      
+        .grid-zone.grid_6
+          - for (var x = 1; x <= 2; x++)
+            .grid-blok.grid_3
+              .grid-element
+                .grid-edge
+                  .grid-title
+                    h2 grid_3
+                  .grid-inside
+                    p blok grid_3
