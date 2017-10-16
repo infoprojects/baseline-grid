@@ -1,0 +1,17 @@
+-
+  var classNames = [
+    `grid_${typeof column === "object" ? column.column : column}`,
+    ...['prefix', 'suffix', 'pull', 'push']
+        .filter(t => typeof column[t] === "number")
+        .map(t => `${t}_${column[t]}`)
+  ];
+
+.grid-blok(class=classNames)
+  .grid-element
+    .grid-edge
+      .grid-title
+        h2 #{classNames[0]}
+      .grid-inside
+        ul
+          each className in classNames
+            li #{className}

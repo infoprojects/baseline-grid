@@ -1,11 +1,18 @@
 var gulp = require("gulp"),
   path = require("path"),
   sass = require("gulp-sass"),
-  config = require("./config.json");
+  config = require("./config.json"),
+  pug = require("gulp-pug");
 
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g, "/");
 }
+
+function paths() {
+  return config.paths;
+}
+
+gulp.task('default', ['build-sass','views']);
 
 gulp.task("build-sass", function() {
   return gulp
@@ -17,12 +24,6 @@ gulp.task("build-sass", function() {
     )
     .pipe(gulp.dest(paths().dest.css));
 });
-
-function paths() {
-  return config.paths;
-}
-
-var pug = require("gulp-pug");
 
 gulp.task("views", function buildHTML() {
   return gulp
