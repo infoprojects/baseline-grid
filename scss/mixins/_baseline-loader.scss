@@ -1,6 +1,6 @@
-@import 'maptovars';
+@import 'map-to-vars';
 @import 'grid-settings';
-@import 'debugcolors';
+@import 'debug-colors';
 
 @media screen and (max-width: $grid-mq-small) {
   $current-columns: $columns-small;

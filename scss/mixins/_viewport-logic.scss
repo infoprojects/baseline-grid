@@ -1,5 +1,5 @@
 @import 'susy';
-@import 'maptovars';
+@import 'map-to-vars';
 
 $container-size: $current-columns * $column-width;
 $wrapper-width: $container-size + 20px;
@@ -29,8 +29,6 @@ $susy: (
       width: $container-size;
 
       &.breakout-zone {
-        margin-left: 0;
-        margin-right: 0;
         padding-left: calc((100% - #{$container-size}) / 2);
         padding-right: calc((100% - #{$container-size}) / 2);
         width: 100%;

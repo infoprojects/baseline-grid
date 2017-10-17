@@ -7,12 +7,17 @@
 ## Getting started
 
 ```
->  Use npm install
->  Use gulp (to run 'build-sass' and 'views' tasks)
+>  npm install
+>  gulp
 ```
 
+## Gulp tasks
+
+* `gulp` - run both tasks `views` and `build-sass`
+* `gulp views` - compile pug files into html files
+* `gulp build-sass` - compile scss files into css files
+
 ## Simple example
-Use `gulp views` in your terminal to compile your pug files into html files
 
 ```pug
 .grid-wrapper.wrapper_15
@@ -26,7 +31,6 @@ Use `gulp views` in your terminal to compile your pug files into html files
 ```
 
 You can easily change your settings. 
-Use `gulp build-sass` to compile your scss files into css files
 
 ```scss
 $baseline-impl: (

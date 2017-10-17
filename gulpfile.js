@@ -1,28 +1,20 @@
 var gulp = require("gulp"),
-  path = require("path"),
   sass = require("gulp-sass"),
-  config = require("./config.json"),
   pug = require("gulp-pug");
-
-function resolvePath(pathInput) {
-  return path.resolve(pathInput).replace(/\\/g, "/");
-}
-
-function paths() {
-  return config.paths;
-}
+  config = require("./config.json"),
+  paths = config.paths;
 
 gulp.task('default', ['build-sass','views']);
 
 gulp.task("build-sass", function() {
   return gulp
-    .src("**/*.scss", { cwd: resolvePath(paths().source.scss) })
+    .src("*.scss", { cwd: (paths.source.scss) })
     .pipe(
       sass({
         includePaths: ["node_modules/susy/sass"]
       })
     )
-    .pipe(gulp.dest(paths().dest.css));
+    .pipe(gulp.dest(paths.dest.css));
 });
 
 gulp.task("views", function buildHTML() {
