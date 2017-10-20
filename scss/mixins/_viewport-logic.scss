@@ -9,11 +9,22 @@ $susy: (
   columns: $current-columns,
   gutters: 20px/80px,
   column-width: $column-width,
-  global-box-sizing: border-box,
   gutter-position: inside-static
 );
 
-@include border-box-sizing;
+$entiteit: (
+  wrapper: border-box,
+  container: border-box,
+  zone: border-box,
+  blok: border-box,
+  element: border-box
+);
+
+@each $i, $border in $entiteit {
+  .grid-#{$i}{
+    box-sizing: $border;
+  }
+}
 
 .wrapper_#{$columns-large} {
   max-width: $wrapper-width;
