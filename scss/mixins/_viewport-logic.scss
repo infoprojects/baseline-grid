@@ -9,9 +9,11 @@ $susy: (
   columns: $current-columns,
   gutters: 20px/80px,
   column-width: $column-width,
-  global-box-sizing: content-box,
+  global-box-sizing: border-box,
   gutter-position: inside-static
 );
+
+@include border-box-sizing;
 
 .wrapper_#{$columns-large} {
   max-width: $wrapper-width;
