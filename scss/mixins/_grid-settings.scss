@@ -23,16 +23,10 @@
   width: 0;
 }
 
-$entiteit: (
-  wrapper: border-box,
-  container: border-box,
-  zone: border-box,
-  blok: border-box,
-  element: border-box
-);
-
-@each $i, $border in $entiteit {
-  .grid-#{$i}{
-    box-sizing: $border;
-  }
+.grid-wrapper,
+.grid-container,
+.grid-zone,
+.grid-blok,
+.grid-element{
+  box-sizing: border-box;
 }
