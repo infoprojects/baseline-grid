@@ -12,20 +12,6 @@ $susy: (
   gutter-position: inside-static
 );
 
-$entiteit: (
-  wrapper: border-box,
-  container: border-box,
-  zone: border-box,
-  blok: border-box,
-  element: border-box
-);
-
-@each $i, $border in $entiteit {
-  .grid-#{$i}{
-    box-sizing: $border;
-  }
-}
-
 .wrapper_#{$columns-large} {
   max-width: $wrapper-width;
 }
