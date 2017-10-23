@@ -1,0 +1,21 @@
+doctype html
+html
+
+  head
+    title grid_12
+    link(rel='stylesheet' href='../css/example-12.css')
+
+  body
+    .grid-wrapper(class="wrapper_12")
+      .grid-container(class="container_12")
+        .grid-zone(class="grid_12")
+          each column in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            include includes/grid-blok
+          each column in [6, 6, 3, 3, 6]
+            include includes/grid-blok
+          each column in [{ prefix: 9, column: 3 }, 12]
+            include includes/grid-blok
+          each column in [{ prefix: 3, column: 6, suffix: 3 }, 9, 3]
+            include includes/grid-blok
+          each column in [{ column: 3, push: 6 }, { column: 3, pull: 3 }]
+            include includes/grid-blok

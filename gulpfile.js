@@ -1,27 +1,29 @@
-/******************************************************
- * Building the sass
-******************************************************/
+var gulp = require("gulp"),
+  sass = require("gulp-sass"),
+  pug = require("gulp-pug");
+  config = require("./config.json"),
+  paths = config.paths;
 
-var gulp = require('gulp'),
-  path = require('path'),
-  sass = require('gulp-sass'),
-  config = require('./config.json');
+gulp.task('default', ['build-sass','views']);
 
-function resolvePath(pathInput) {
-  return path.resolve(pathInput).replace(/\\/g, '/');
-}
-
-gulp.task('build-sass', function () {
-  return (gulp
-    .src('**/**.scss', { cwd: resolvePath(paths().source.scss) })
+gulp.task("build-sass", function() {
+  return gulp
+    .src("*.scss", { cwd: (paths.source.scss) })
     .pipe(
       sass({
-        includePaths: ['node_modules/susy/sass']
-      }))
-    .pipe(gulp.dest(paths().dest.css))
-  );
+        includePaths: ["node_modules/susy/sass"]
+      })
+    )
+    .pipe(gulp.dest(paths.dest.css));
 });
 
-function paths() {
-  return config.paths;
-}
+gulp.task("views", function buildHTML() {
+  return gulp
+    .src("./views/*.pug")
+    .pipe(
+      pug({
+        pretty: true
+      })
+    )
+    .pipe(gulp.dest("./html"));
+});

@@ -1,0 +1,16 @@
+$map: (
+  1: lightblue,
+  2: lightgreen,
+  3: lightyellow,
+  4: darkgray,
+  6: lightpink,
+  9: lightgray,
+  12: lightslategrey,
+  15: lightcoral
+);
+
+@each $i, $color in $map {
+  .grid_#{$i} {
+    background-color: $color;
+  }
+}

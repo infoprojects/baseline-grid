@@ -1,0 +1,26 @@
+doctype html
+html
+
+  head
+    title grid_15
+    link(rel='stylesheet' href='../css/example-15.css')
+
+  body
+    .grid-wrapper(class="wrapper_15")
+      .grid-container(class="container_15")
+        .grid-zone(class="grid_15")
+          each column in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            include includes/grid-blok
+          each column in [6, 6, 3]
+            include includes/grid-blok
+          each column in [{ prefix: 9, column: 6 }, 15]
+            include includes/grid-blok
+        .grid-zone(class="grid_9")
+          each column in [{ prefix: 3, column: 3 }]
+            include includes/grid-blok
+        .grid-zone(class="grid_3")
+            each column in [{ column: 3, prefix: 3 }]
+              include includes/grid-blok
+        .grid-zone(class="grid_15")
+          each column in [{ column: 3, push: 9 }, { column: 3, pull: 3 }]
+            include includes/grid-blok

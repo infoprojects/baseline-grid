@@ -2,43 +2,44 @@
 
 ## Prerequisites
 
-* `nodejs` en `yarn`
-
-Use `npm` to install `yarn`:
-
-```
-> npm install yarn
-```
-
-## Simple example
-
-```html
-<div class="grid-wrapper wrapper_12">
-  <div class="grid-container container_12">
-    <div class="grid-zone grid_12">
-      <div class="grid-blok grid_12">
-        <div class="grid-element">
-          <div class="grid-edge">
-            <div class="grid-title">
-              <h2>Title</h2>
-            </div>
-            <div class="grid-inside">
-              <p>Inhoud</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-```
+* `nodejs`, `npm`
 
 ## Getting started
 
 ```
-> yarn install
+>  npm install
+>  gulp
 ```
 
+## Gulp tasks
+
+* `gulp` - run both tasks `views` and `build-sass`
+* `gulp views` - compile pug files into html files
+* `gulp build-sass` - compile scss files into css files
+
+## Simple example
+
+```pug
+.grid-wrapper.wrapper_15
+  .grid-container.container_15
+    .grid-zone.grid_15
+      - for (var x = 1; x <= 5; x++)
+        .grid-blok.grid_3
+          .grid-element
+            .grid-edge
+              p blok grid_3
 ```
-> yarn sass
+
+You can easily change your settings. 
+
+```scss
+$baseline-impl: (
+  grid-mq-small: 539px,
+  grid-mq-medium: 1039px,
+  columns-large: 15,
+  columns-medium: 6,
+  columns-small: 3,
+  wrapper-width: 1120px,
+  grid-zones: (15, 12, 9, 6, 3),
+);
 ```
