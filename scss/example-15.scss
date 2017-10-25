@@ -4,8 +4,7 @@ $baseline-impl: (
   columns-large: 15,
   columns-medium: 6,
   columns-small: 3,
-  wrapper-width: 1120px,
-  grid-zones: (15, 12, 9, 6, 3),
+  grid-zones: (15, 12, 9, 6, 3)
 );
 
 @import 'mixins/baseline-loader';

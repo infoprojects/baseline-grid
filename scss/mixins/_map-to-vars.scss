@@ -12,3 +12,9 @@ $columns-medium: map-get($baseline, columns-medium);
 $columns-small: map-get($baseline, columns-small);
 
 $grid-zones: map-get($baseline, grid-zones);
+
+$gutter: map-get($baseline, gutter);
+$outer-padding: map-get($baseline, outer-padding);
+$inner-padding: map-get($baseline, inner-padding);
+
+$debug-color: map-get($baseline, debug-color);

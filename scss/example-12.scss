@@ -2,8 +2,7 @@
   columns-large: 12,
   columns-medium: 6,
   columns-small: 3,
-  wrapper-width: 980px,
-  grid-zones: (12, 9, 6, 3),
+  grid-zones: (12, 6)
 );
 
 @import 'mixins/baseline-loader';

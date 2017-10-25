@@ -4,6 +4,8 @@
   columns-small: 2,
   wrapper-width: 980px,
   grid-zones: (4, 2),
+  inner-padding: 0px,
+  outer-padding: 0px
 );
 
 @import 'mixins/baseline-loader';

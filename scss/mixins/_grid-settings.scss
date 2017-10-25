@@ -27,6 +27,12 @@
 .grid-container,
 .grid-zone,
 .grid-blok,
-.grid-element{
+.grid-element {
   box-sizing: border-box;
+}
+
+.grid-title,
+.grid-inside {
+  padding-left: $inner-padding;
+  padding-right: $inner-padding;
 }

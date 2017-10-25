@@ -1,9 +1,13 @@
 $baseline-default: (
+  grid-zones: (12, 9, 6, 3),
   column-width: 80px,
   grid-mq-small: 480px,
   grid-mq-medium: 768px,
   columns-small: 3,
   columns-medium: 6,
   columns-large: 12,
-  grid-zones: (12, 9, 6, 3),
+  outer-padding: .25,
+  inner-padding: 10px,
+  gutter: 0px,
+  debug-color: false
 );
