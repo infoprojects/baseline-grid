@@ -6,25 +6,36 @@
   .grid-zone.pull_#{$zone-index} {
     left: -1 * span($zone-index);
   }
+
   .grid-zone.grid_#{$zone-index} {
-      @for $sub-index from 1 through $columns-large {
-        @if $sub-index < $zone-index {
-          .grid-blok.push_#{$sub-index} {
-            left: span($sub-index of $zone-index);
+    @for $sub-index from 1 through $columns-large {
+      @if $sub-index < $zone-index {
+        .grid-blok.push_#{$sub-index} {
+          left: $sub-index / $zone-index * 100%;
+        }
+
+        .grid-blok.pull_#{$sub-index} {
+          left: - $sub-index / $zone-index * 100%;
+        }
+
+        @if $gutter > 0 {
+          .grid-blok.prefix_#{$sub-index} {
+            @include pre($sub-index);
           }
-  
-          .grid-blok.pull_#{$sub-index} {
-            left: -1 * span($sub-index of $zone-index);
+
+          .grid-blok.suffix_#{$sub-index} {
+            @include post($sub-index);
           }
-  
+        } @else {
           .grid-blok.prefix_#{$sub-index} {
             margin-left: span($sub-index of $zone-index);
           }
-  
+
           .grid-blok.suffix_#{$sub-index} {
             margin-right: span($sub-index of $zone-index);
           }
         }
       }
+    }
   }
 }

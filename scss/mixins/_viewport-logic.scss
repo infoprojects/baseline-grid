@@ -11,8 +11,7 @@ $susy: (
   gutters: $gutter / $column-width,
   column-width: $column-width,
   gutter-position: split,
-  global-box-sizing: border-box,
-
+  global-box-sizing: border-box
 );
 
 .wrapper_#{$columns-large} {
