@@ -11,7 +11,6 @@
 .grid-zone {
   float: left;
   position: relative;
-  width: 100%;
 }
 
 .clear {
@@ -27,13 +26,28 @@
 .grid-container,
 .grid-zone,
 .grid-blok,
-
 .grid-element {
   box-sizing: border-box;
 }
 
-.grid-title,
-.grid-inside {
-  padding-left: $inner-padding;
-  padding-right: $inner-padding;
+@if $gutter > 0 {
+  .grid-blok {
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+  }
+}
+
+@if $outer-padding > 0 {
+  .grid-element {
+    padding-left: $outer-padding / 2;
+    padding-right: $outer-padding / 2;
+  }
+}
+
+@if $inner-padding > 0 {
+  .grid-title,
+  .grid-inside {
+    padding-left: $inner-padding / 2;
+    padding-right: $inner-padding / 2;
+  }
 }
