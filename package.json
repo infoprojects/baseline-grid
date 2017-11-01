@@ -17,9 +17,7 @@
     "email": "ad.van.pinxteren@infoprojects.nl"
   },
   "homepage": "https://github.com/infoprojects-nl/baseline-grid#readme",
-  "dependencies": {
-    "susy": "^2.2.12"
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
