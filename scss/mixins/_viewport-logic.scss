@@ -1,28 +1,21 @@
-@import 'susy';
-@import 'map-to-vars';
+@import 'functions';
 
 $container-size: $current-columns * $column-width;
 $wrapper-width: $container-size + 20px;
-
-$susy: (
-  math: fluid,
-  container: $container-size,
-  columns: $current-columns,
-  gutters: $gutter / $column-width,
-  column-width: $column-width,
-  gutter-position: split,
-  global-box-sizing: border-box
-);
 
 .wrapper_#{$columns-large} {
   max-width: $wrapper-width;
 }
 
+.grid-container {
+  &:not(.breakout-container) {
+    max-width: $container-size;
+  }
+}
+
 .container_#{$columns-large} {
-  @include container;
 
   &.breakout-container {
-    max-width: 100%;
 
     .grid-zone.grid_#{$columns-large} {
       margin-left: calc((100% - #{$container-size}) / 2);
@@ -38,37 +31,16 @@ $susy: (
   }
 }
 
-@each $zone-index in $grid-zones {
-  .grid-zone.grid_#{$zone-index} {
-    @if $zone-index < $current-columns {
-      @include span($zone-index of $current-columns nest);
+@each $zone in $zones {
+  $zone-columns: map-get($zone, columns);
+  $zone-blocks: map-get($zone, blocks);
 
-      @for $blok-index from 1 through $current-columns {
-        @if $blok-index < $zone-index  {
-          .grid-blok.grid_#{$blok-index} {
-            @include span($blok-index of $zone-index);
+  .grid-zone.grid_#{$zone-columns} {
+    width: min(100%, percentage($zone-columns / $current-columns));
 
-            > .grid-element {
-              @include span($blok-index of $blok-index $outer-padding);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @if $zone-index >= $current-columns {
-    .grid-zone.grid_#{$zone-index} {
-      @include span($current-columns of $current-columns nest);
-
-      @for $blok-index from 1 through $current-columns {
-        .grid-blok.grid_#{$blok-index} {
-          @include span($blok-index of $current-columns);
-
-          > .grid-element {
-            @include span($blok-index of $blok-index $outer-padding);
-          }
-        }
+    @each $block in $zone-blocks {
+      .grid-blok.grid_#{$block} {
+        @include grid-blok($block, min($zone-columns, $current-columns));
       }
     }
   }

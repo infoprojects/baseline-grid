@@ -1,10 +1,30 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .grid-wrapper {
   margin: 0 auto;
   max-width: 100%;
+
+  &.expand-to-page {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .grid-container {
   margin: 0 auto;
+
+  &.breakout-container {
+    max-width: 100%;
+    // padding-left: 0;
+    // padding-right: 0;
+    width: 100%;
+  }
 }
 
 .grid-blok,
