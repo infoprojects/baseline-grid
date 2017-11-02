@@ -4,8 +4,10 @@ $baseline-config: (
     (columns: 9, blocks: (9, 6, 5, 3, 2)),
     (columns: 3, blocks: (3))
   ),
-  gutter: 15px,
   debug-color: true
 );
 
 @import 'mixins/baseline-loader';
+
+
+

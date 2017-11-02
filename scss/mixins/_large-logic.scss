@@ -4,12 +4,15 @@
   $zone-blocks: map-get($zone, blocks);
 
   .grid-zone {
-    &.push_#{$zone-columns} {
-      left: $zone-columns;
+    @each $push in $pushes {
+      &.push_#{$push} {
+        left: percentage($push / $current-columns);
+      }
     }
-
-    &.pull_#{$zone-columns} {
-      left: -#{$zone-columns};
+    @each $pull in $pulls {
+      &.pull_#{$pull} {
+        left: -#{percentage($pull / $current-columns)};
+      }
     }
 
     &.grid_#{$zone-columns} {
