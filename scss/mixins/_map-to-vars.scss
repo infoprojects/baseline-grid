@@ -1,14 +1,19 @@
 @import 'baseline-default';
 
-$baseline: map-merge($baseline-default, $baseline-impl);
+$baseline: map-merge($baseline-default, $baseline-config);
 
+$zones: map-get($baseline, zones);
 $column-width: map-get($baseline, column-width);
 
-$grid-mq-medium: map-get($baseline, grid-mq-medium);
 $grid-mq-small: map-get($baseline, grid-mq-small);
+$grid-mq-medium: map-get($baseline, grid-mq-medium);
 
-$columns-large: map-get($baseline, columns-large);
-$columns-medium: map-get($baseline, columns-medium);
 $columns-small: map-get($baseline, columns-small);
+$columns-medium: map-get($baseline, columns-medium);
+$columns-large: map-get($baseline, columns-large);
 
-$grid-zones: map-get($baseline, grid-zones);
+$gutter: map-get($baseline, gutter);
+$outer-padding: map-get($baseline, outer-padding);
+$inner-padding: map-get($baseline, inner-padding);
+
+$debug-color: map-get($baseline, debug-color);

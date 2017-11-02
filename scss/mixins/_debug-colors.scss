@@ -1,16 +1,32 @@
-$map: (
-  1: lightblue,
-  2: lightgreen,
-  3: lightyellow,
-  4: darkgray,
-  6: lightpink,
-  9: lightgray,
-  12: lightslategrey,
-  15: lightcoral
-);
+@if $debug-color == true {
+  $map: (
+    1: lightblue,
+    2: lightgreen,
+    3: lightyellow,
+    4: darkgray,
+    5: lightgrey,
+    6: lightpink,
+    9: lightgray,
+    12: lightslategrey,
+    15: lightcoral
+  );
+  
+  @each $i, $color in $map {
+    .grid-blok.grid_#{$i} {
+      background-color: rgba(51, 51, 51, 0.295);
 
-@each $i, $color in $map {
-  .grid_#{$i} {
-    background-color: $color;
+      .grid-title,
+      .grid-inside {
+        background-color: $color;
+      }
+    }
+  }
+
+  .grid-zone {
+    background-color: rgb(235, 235, 235);
+  }
+
+  h2, p {
+    margin: 0;
   }
 }

@@ -1,28 +1,51 @@
-@each $zone-index in $grid-zones { 
-  .grid-zone.push_#{$zone-index} {
-    left: span($zone-index);
-  }
+@each $zone in $zones {
+  // sass-lint:disable class-name-format
+  $zone-columns: map-get($zone, columns);
+  $zone-blocks: map-get($zone, blocks);
 
-  .grid-zone.pull_#{$zone-index} {
-    left: -1 * span($zone-index);
-  }
-  .grid-zone.grid_#{$zone-index} {
-      @for $sub-index from 1 through $columns-large {
-        .grid-blok.push_#{$sub-index} {
-          left: span($sub-index of $zone-index);
-        }
-        
-        .grid-blok.pull_#{$sub-index} {
-          left: -1 * span($sub-index of $zone-index);
-        }
-        
-        .grid-blok.prefix_#{$sub-index} {
-          margin-left: span($sub-index of $zone-index);
-        }
-        
-        .grid-blok.suffix_#{$sub-index} {
-          margin-right: span($sub-index of $zone-index);
+  .grid-zone {
+    &.push_#{$zone-columns} {
+      left: $zone-columns;
+    }
+
+    &.pull_#{$zone-columns} {
+      left: -#{$zone-columns};
+    }
+
+    &.grid_#{$zone-columns} {
+      @each $block in $zone-blocks {
+        .grid-blok {
+          &.push_#{$block} {
+            left: percentage($block / $zone-columns);
+          }
+
+          &.pull_#{$block} {
+            left: -#{percentage($block / $zone-columns)};
+          }
+
+          &.prefix_#{$block} {
+            $width: percentage($block / $zone-columns);
+
+            @if $gutter > 0 {
+              margin-left: calc(#{$width} + #{$gutter / 2});
+            }
+            @else {
+              margin-left: $width;
+            }
+          }
+
+          &.suffix_#{$block} {
+            $width: percentage($block / $zone-columns);
+
+            @if $gutter > 0 {
+              margin-right: calc(#{$width} + #{$gutter / 2});
+            }
+            @else {
+              margin-right: $width;
+            }
+          }
         }
       }
+    }
   }
 }

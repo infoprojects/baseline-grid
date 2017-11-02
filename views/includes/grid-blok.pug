@@ -10,8 +10,6 @@
   .grid-element
     .grid-edge
       .grid-title
-        h2 #{classNames[0]}
+        h2 #{classNames[0].split('_').reverse()[0]}
       .grid-inside
-        ul
-          each className in classNames
-            li #{className}
+          p #{classNames.join(', ')}

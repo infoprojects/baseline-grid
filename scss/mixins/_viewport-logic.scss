@@ -1,69 +1,22 @@
-@import 'susy';
-@import 'map-to-vars';
+@import 'functions';
 
 $container-size: $current-columns * $column-width;
 $wrapper-width: $container-size + 20px;
-
-$susy: (
-  container: $container-size,
-  columns: $current-columns,
-  gutters: 20px/80px,
-  column-width: $column-width,
-  gutter-position: inside-static,
-  global-box-sizing: border-box
-);
 
 .wrapper_#{$columns-large} {
   max-width: $wrapper-width;
 }
 
-.container_#{$columns-large} {
-  @include container;
+@each $zone in $zones {
+  $zone-columns: map-get($zone, columns);
+  $zone-blocks: map-get($zone, blocks);
 
-  &.breakout-container {
-    max-width: 100%;
+  .grid-zone.grid_#{$zone-columns} {
+    width: min(100%, percentage($zone-columns / $current-columns));
 
-    .grid-zone.grid_#{$columns-large} {
-      margin-left: calc((100% - #{$container-size}) / 2);
-      margin-right: calc((100% - #{$container-size}) / 2);
-      width: $container-size;
-
-      &.breakout-zone {
-        padding-left: calc((100% - #{$container-size}) / 2);
-        padding-right: calc((100% - #{$container-size}) / 2);
-        width: 100%;
-      }
-    }
-  }
-}
-
-@each $zone-index in $grid-zones {
-  .grid-zone.grid_#{$zone-index} {
-    @include span($zone-index of $current-columns no-gutter);
-
-    @for $blok-index from 1 through $current-columns {
-      .grid-blok.grid_#{$blok-index} {
-        @include span($blok-index of $zone-index no-gutter);
-
-        > .grid-element {
-          @include span($blok-index of $blok-index);
-        }
-      }
-    }
-  }
-
-  @if $zone-index > $current-columns {
-    .grid-zone.grid_#{$zone-index} {
-      width: 100%;
-
-      @for $blok-index from 1 through $current-columns {
-        .grid-blok.grid_#{$blok-index} {
-          @include span($blok-index of $current-columns  no-gutter);
-
-          > .grid-element {
-            @include span($blok-index of $blok-index);
-          }
-        }
+    @each $block in $zone-blocks {
+      .grid-blok.grid_#{$block} {
+        @include grid-blok($block, min($zone-columns, $current-columns));
       }
     }
   }
