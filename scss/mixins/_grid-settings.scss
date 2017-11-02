@@ -7,10 +7,36 @@ body {
 .grid-wrapper {
   margin: 0 auto;
   max-width: 100%;
+
+  &.expand-to-page {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .grid-container {
   margin: 0 auto;
+
+  &.breakout-container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+.grid-zone {
+  &.expand-to-page {
+    clear: both;
+    float: left;
+    margin-left: -100%;
+    margin-right: -100%;
+    padding-left: 100%;
+    padding-right: 100%;
+    width: 100%;
+  }
 }
 
 .grid-blok,
