@@ -7,30 +7,6 @@ $wrapper-width: $container-size + 20px;
   max-width: $wrapper-width;
 }
 
-.grid-container {
-  &:not(.breakout-container) {
-    max-width: $container-size;
-  }
-}
-
-.container_#{$columns-large} {
-
-  &.breakout-container {
-
-    .grid-zone.grid_#{$columns-large} {
-      margin-left: calc((100% - #{$container-size}) / 2);
-      margin-right: calc((100% - #{$container-size}) / 2);
-      width: $container-size;
-
-      &.breakout-zone {
-        padding-left: calc((100% - #{$container-size}) / 2);
-        padding-right: calc((100% - #{$container-size}) / 2);
-        width: 100%;
-      }
-    }
-  }
-}
-
 @each $zone in $zones {
   $zone-columns: map-get($zone, columns);
   $zone-blocks: map-get($zone, blocks);

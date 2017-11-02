@@ -8,16 +8,3 @@
     width: $width;
   }
 }
-
-// ERROR HANDLING
-@each $zone in $zones {
-  $zone-columns: map-get($zone, columns);
-  $zone-blocks: map-get($zone, blocks);
-  
-  @each $check in $zone-blocks {
-    @if $check > $zone-columns {
-      @error 'blok #{$check} past niet in zone #{$zone-columns}';
-    }
-  }
-}
-// ERROR HANDLING
