@@ -1,38 +1,50 @@
-@each $zone-index in $grid-zones {
-  .grid-zone.push_#{$zone-index} {
-    left: span($zone-index);
-  }
+@each $zone in $zones {
+  // sass-lint:disable class-name-format
+  $zone-columns: map-get($zone, columns);
+  $zone-blocks: map-get($zone, blocks);
 
-  .grid-zone.pull_#{$zone-index} {
-    left: -1 * span($zone-index);
-  }
+  .grid-zone {
+    &.push_#{$zone-columns} {
+      left: $zone-columns;
+    }
 
-  .grid-zone.grid_#{$zone-index} {
-    @for $sub-index from 1 through $columns-large {
-      @if $sub-index < $zone-index {
-        .grid-blok.push_#{$sub-index} {
-          left: $sub-index / $zone-index * 100%;
-        }
+    &.pull_#{$zone-columns} {
+      left: -1 * $zone-columns;
+    }
 
-        .grid-blok.pull_#{$sub-index} {
-          left: - $sub-index / $zone-index * 100%;
-        }
+    &.grid_#{$zone-columns} {
+      @each $block in $zone-blocks {
+        @if $block < $zone-columns {
+          .grid-blok {
+            &.push_#{$block} {
+              left: percentage($block / $zone-columns);
+            }
 
-        @if $gutter > 0 {
-          .grid-blok.prefix_#{$sub-index} {
-            @include pre($sub-index);
-          }
+            &.pull_#{$block} {
+              left: - percentage($block / $zone-columns);
+            }
 
-          .grid-blok.suffix_#{$sub-index} {
-            @include post($sub-index);
-          }
-        } @else {
-          .grid-blok.prefix_#{$sub-index} {
-            margin-left: span($sub-index of $zone-index);
-          }
+            &.prefix_#{$block} {
+              $width: percentage($block / $zone-columns);
+              
+              @if $gutter > 0 {
+                margin-left: calc(#{$width} + #{$gutter / 2});
+              }
+              @else {
+                margin-left: $width;
+              }
+            }
 
-          .grid-blok.suffix_#{$sub-index} {
-            margin-right: span($sub-index of $zone-index);
+            &.suffix_#{$block} {
+              $width: percentage($block / $zone-columns);
+
+              @if $gutter > 0 {
+                margin-right: calc(#{$width} + #{$gutter / 2});
+              }
+              @else {
+                margin-right: $width;
+              }
+            }
           }
         }
       }

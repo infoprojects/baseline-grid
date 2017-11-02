@@ -12,11 +12,21 @@
   );
   
   @each $i, $color in $map {
-    .grid_#{$i} {
-      background-color: $color
-    }
-    .grid-element {
+    .grid-blok.grid_#{$i} {
       background-color: rgba(51, 51, 51, 0.295);
+
+      .grid-title,
+      .grid-inside {
+        background-color: $color;
+      }
     }
+  }
+
+  .grid-zone {
+    background-color: rgb(235, 235, 235);
+  }
+
+  h2, p {
+    margin: 0;
   }
 }

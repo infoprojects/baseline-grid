@@ -6,26 +6,17 @@ html
     link(rel='stylesheet' href='../css/example-gut-12.css')
 
   body
-    .grid-wrapper(class="wrapper_12")
-      .grid-container(class="container_12")
-        .grid-zone(class="grid_12")
-          each column in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    .grid-wrapper.wrapper_12
+      .grid-container.container_12
+        .grid-zone.grid_12
+          each column in [12]
             include includes/grid-blok
-          each column in [6, 6, 3, 3, 3, 3]
+        .grid-zone.grid_3
+          each column in [3, 3, 3, 3, 3]
             include includes/grid-blok
-        .grid-zone(class="grid_6")
-          each column in [3,3]
+        .grid-zone.grid_9
+          each column in [3, 3, 3, { prefix: 2, column: 5, suffix: 2 }, 6, 3, 3, 6, 9 ]
             include includes/grid-blok
-        .grid-zone(class="grid_6")
-          each column in [1,1,1,3]
-            include includes/grid-blok
-        .grid-zone(class="grid_12")
-          each column in [{ prefix: 3, column: 6, suffix: 3 }, 9, 3]
-            include includes/grid-blok
-          each column in [{ prefix: 9, column: 3 }, { prefix: 8, column: 4 }, { prefix: 7, column: 5 }, { prefix: 6, column: 6 }]
-            include includes/grid-blok
-          each column in [{ suffix: 3, column: 3 }, 3, { suffix: 8, column: 4 }, { suffix: 7, column: 5 }, { suffix: 6, column: 6 }]
-            include includes/grid-blok
-        .grid-zone(class="grid_12")
-          each column in [{ column: 3, push: 6 }, { column: 3, pull: 3 }]
+        .grid-zone.grid_12
+          each column in [6, 6]
             include includes/grid-blok
