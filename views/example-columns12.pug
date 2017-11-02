@@ -6,20 +6,20 @@ html
     link(rel='stylesheet' href='../css/example-12.css')
 
   body
-    .grid-wrapper(class="wrapper_12")
-      .grid-container(class="container_12")
-        .grid-zone(class="grid_12")
+    .grid-wrapper.wrapper_12
+      .grid-container.container_12
+        .grid-zone.grid_12
           each column in [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             include includes/grid-blok
           each column in [6, 6]
             include includes/grid-blok
-        .grid-zone(class="grid_6")
+        .grid-zone.grid_6
           each column in [3,3]
             include includes/grid-blok
-        .grid-zone(class="grid_6")
+        .grid-zone.grid_6
           each column in [1,1,1,3]
             include includes/grid-blok
-        .grid-zone(class="grid_12")
+        .grid-zone.grid_12
           each column in [{ prefix: 9, column: 3 }, 12]
             include includes/grid-blok
           each column in [{ prefix: 3, column: 6, suffix: 3 }, 9, 3]

@@ -1,11 +1,13 @@
- $baseline-impl: (
+$baseline-config: (
+  zones: (
+    (columns: 4, blocks: (4, 3, 2, 1)),
+    (columns: 3, blocks: (3, 2, 1)),
+    (columns: 2, blocks: (2, 1)),
+  ),
   columns-large: 4,
   columns-medium: 3,
   columns-small: 2,
-  wrapper-width: 980px,
-  grid-zones: (4, 2),
-  inner-padding: 0px,
-  outer-padding: 0px
+  debug-color: true
 );
 
 @import 'mixins/baseline-loader';

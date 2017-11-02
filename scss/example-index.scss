@@ -1,13 +1,13 @@
 $baseline-config: (
   zones: (
-    (columns: 12, blocks: (12, 9, 6, 3, 1)),
-    (columns: 9, blocks: (9, 6, 3, 1)),
-    (columns: 6, blocks: (6, 3, 1)),
+    (columns: 12, blocks: (12, 6, 6)),
+    (columns: 9, blocks: (9, 6, 5, 3, 2)),
     (columns: 3, blocks: (3))
   ),
   columns-large: 12,
   columns-medium: 6,
   columns-small: 3,
+  gutter: 10px,
   debug-color: true
 );
 

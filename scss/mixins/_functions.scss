@@ -1,0 +1,10 @@
+@mixin grid-blok($block-column, $zone-columns) {
+  $width: min(100%, percentage($block-column / $zone-columns));
+
+  @if $gutter > 0 {
+    width: calc(#{$width} - #{$gutter});
+  }
+  @else {
+    width: $width;
+  }
+}

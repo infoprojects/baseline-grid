@@ -4,7 +4,7 @@
       "scss" : "./scss/"
     },
     "dest" : {
-      "css" : "./css"
+      "css" : "./public/css"
     }
   }
 }

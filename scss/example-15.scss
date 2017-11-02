@@ -1,10 +1,13 @@
-$baseline-impl: (
-  grid-mq-small: 539px,
-  grid-mq-medium: 1039px,
+$baseline-config: (
+  zones: (
+    (columns: 15, blocks: (15, 9, 6, 3, 1)),
+    (columns: 9, blocks: (9, 6, 3, 1)),
+    (columns: 6, blocks: (6, 3, 1)),
+  ),
   columns-large: 15,
-  columns-medium: 6,
-  columns-small: 3,
-  grid-zones: (15, 12, 9, 6, 3)
+  columns-medium: 9,
+  columns-small: 6,
+  debug-color: true
 );
 
 @import 'mixins/baseline-loader';
