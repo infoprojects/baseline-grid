@@ -6,11 +6,11 @@ var gulp = require("gulp"),
   reload = browserSync.reload,
   paths = config.paths;
 
-gulp.task('default', ['build-sass','views', 'watch', 'serve']);
+gulp.task('default', ['build-sass','build-views', 'serve', 'watch']);
 
 gulp.task('watch', function(){
   gulp.watch('./scss/**/*.scss', ['build-sass']);
-  gulp.watch('./views/*.pug', ["views"]);
+  gulp.watch('./views/*.pug', ["build-views"]);
 });
 
 gulp.task('serve', function () {
@@ -34,7 +34,7 @@ gulp.task("build-sass", function() {
     .pipe(gulp.dest(paths.dest.css));
 });
 
-gulp.task("views", function buildHTML() {
+gulp.task("build-views", function buildHTML() {
   return gulp
     .src("./views/*.pug")
     .pipe(
