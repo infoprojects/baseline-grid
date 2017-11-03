@@ -33,7 +33,7 @@
             $width: percentage($block / $zone-columns);
 
             @if $gutter > 0 {
-              margin-left: calc(#{$width} + #{$gutter / 2});
+              margin-left: calc(#{$width} + #{$gutter});
             }
             @else {
               margin-left: $width;
@@ -44,7 +44,7 @@
             $width: percentage($block / $zone-columns);
 
             @if $gutter > 0 {
-              margin-right: calc(#{$width} + #{$gutter / 2});
+              margin-right: calc(#{$width} + #{$gutter});
             }
             @else {
               margin-right: $width;
