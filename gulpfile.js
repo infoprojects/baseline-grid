@@ -15,7 +15,7 @@ gulp.task('watch', function(){
 gulp.task('serve', function () {
   browserSync.init({
     server: {
-      baseDir: './public',
+      baseDir: paths.source.baseDir,
       directory: true
     },
     files: ['./public/**/*']
@@ -35,11 +35,11 @@ gulp.task('build-sass', function() {
 
 gulp.task('build-views', function buildHTML() {
   return gulp
-    .src('./views/*.pug')
+    .src('*.pug', { cwd: (paths.source.pug) })
     .pipe(
       pug({
         pretty: true
       })
     )
-    .pipe(gulp.dest('./public/html'));
+    .pipe(gulp.dest(paths.dest.html));
 });
