@@ -38,22 +38,22 @@ body {
 
 @if $gutter > 0 {
   .grid-blok {
-    margin-left: $gutter / 2;
-    margin-right: $gutter / 2;
+    margin-left: $gutter;
+    margin-right: $gutter;
   }
 }
 
 @if $outer-padding > 0 {
   .grid-element {
-    padding-left: $outer-padding / 2;
-    padding-right: $outer-padding / 2;
+    padding-left: $outer-padding;
+    padding-right: $outer-padding;
   }
 }
 
 @if $inner-padding > 0 {
   .grid-title,
   .grid-inside {
-    padding-left: $inner-padding / 2;
-    padding-right: $inner-padding / 2;
+    padding-left: $inner-padding;
+    padding-right: $inner-padding;
   }
 }
