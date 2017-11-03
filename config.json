@@ -1,13 +1,10 @@
 {
   "paths" : {
     "source" : {
-      "baseDir" : "./public",
-      "scss" : "./scss/",
-      "pug" :  "./views/"
+      "scss" : "./scss/"
     },
     "dest" : {
-      "css" : "./public/css",
-      "html" : "./public/html"
+      "css" : "./public/css"
     }
   }
 }
