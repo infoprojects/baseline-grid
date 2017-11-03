@@ -1,20 +1,23 @@
+.grid-zone {
+  @each $push in $pushes {
+    &.push_#{$push} {
+      left: percentage($push / $current-columns);
+    }
+  }
+
+  @each $pull in $pulls {
+    &.pull_#{$pull} {
+      left: -#{percentage($pull / $current-columns)};
+    }
+  }
+}
+
 @each $zone in $zones {
   // sass-lint:disable class-name-format
   $zone-columns: map-get($zone, columns);
   $zone-blocks: map-get($zone, blocks);
 
   .grid-zone {
-    @each $push in $pushes {
-      &.push_#{$push} {
-        left: percentage($push / $current-columns);
-      }
-    }
-    @each $pull in $pulls {
-      &.pull_#{$pull} {
-        left: -#{percentage($pull / $current-columns)};
-      }
-    }
-
     &.grid_#{$zone-columns} {
       @each $block in $zone-blocks {
         .grid-blok {

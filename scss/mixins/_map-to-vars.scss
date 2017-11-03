@@ -14,8 +14,6 @@ $columns-large: map-get($baseline, columns-large);
 
 $pushes: map-get($baseline, pushes);
 $pulls: map-get($baseline, pulls);
-$prefixes: map-get($baseline, prefixes);
-$suffixes: map-get($baseline, suffixes);
 
 $gutter: map-get($baseline, gutter);
 $outer-padding: map-get($baseline, outer-padding);
