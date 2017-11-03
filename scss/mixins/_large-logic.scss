@@ -1,3 +1,4 @@
+// sass-lint:disable class-name-format
 .grid-zone {
   @each $push in $pushes {
     &.push_#{$push} {
@@ -13,7 +14,6 @@
 }
 
 @each $zone in $zones {
-  // sass-lint:disable class-name-format
   $zone-columns: map-get($zone, columns);
   $zone-blocks: map-get($zone, blocks);
 
