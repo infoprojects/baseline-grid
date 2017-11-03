@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 gulp.task('default', ['build-sass', 'build-views', 'serve', 'watch']);
 
 gulp.task('watch', function () {
-  gulp.watch(`${paths.source.scss}/**/.scss`, ['build-sass']);
+  gulp.watch(`${paths.source.scss}/**/*.scss`, ['build-sass']);
   gulp.watch(`${paths.source.pug}/*.pug`, ['build-views']);
 });
 
@@ -36,7 +36,7 @@ gulp.task('build-sass', function buildCss() {
 
 gulp.task('build-views', function buildHtml() {
   return gulp
-    .src('/*.pug', { cwd: paths.source.pug })
+    .src('*.pug', { cwd: paths.source.pug })
     .pipe(
       pug({
         pretty: true
