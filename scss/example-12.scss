@@ -5,6 +5,9 @@ $baseline-config: (
     (columns: 6, blocks: (6, 3, 1)),
     (columns: 3, blocks: (3))
   ),
+  gutter: 7.5px,
+  outer-padding: 7.5px,
+  inner-padding: 7.5px,
   debug-color: true
 );
 
