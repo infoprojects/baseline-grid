@@ -3,43 +3,44 @@ var gulp = require('gulp'),
   pug = require('gulp-pug'),
   config = require('./config.json'),
   browserSync = require('browser-sync').create(),
-  paths = config.paths;
+  paths = config.paths,
+  path = require('path');
 
 gulp.task('default', ['build-sass', 'build-views', 'serve', 'watch']);
 
-gulp.task('watch', function(){
-  gulp.watch('./scss/**/*.scss', ['build-sass']);
-  gulp.watch('./views/*.pug', ['build-views']);
+gulp.task('watch', function () {
+  gulp.watch(path.join(paths.source.scss, '**/*.scss'), ['build-sass']);
+  gulp.watch(path.join(paths.source.pug, '/*.pug'), ['build-views']);
 });
 
 gulp.task('serve', function () {
   browserSync.init({
     server: {
-      baseDir: './public',
+      baseDir: paths.dest.baseDir,
       directory: true
     },
-    files: ['./public/**/*']
+    files: [path.join(paths.dest.baseDir, '**/*')]
   });
 });
 
-gulp.task('build-sass', function() {
+gulp.task('build-sass', function buildCss() {
   return gulp
-    .src('*.scss', { cwd: (paths.source.scss) })
+    .src('*.scss', { cwd: paths.source.scss })
     .pipe(
       sass({
         includePaths: ['node_modules/susy/sass']
       })
     )
-    .pipe(gulp.dest(paths.dest.css));
+    .pipe(gulp.dest(path.join(paths.dest.baseDir, paths.dest.css)));
 });
 
-gulp.task('build-views', function buildHTML() {
+gulp.task('build-views', function buildHtml() {
   return gulp
-    .src('./views/*.pug')
+    .src('*.pug', { cwd: paths.source.pug })
     .pipe(
       pug({
         pretty: true
       })
     )
-    .pipe(gulp.dest('./public/html'));
+    .pipe(gulp.dest(path.join(paths.dest.baseDir, paths.dest.html)));
 });
