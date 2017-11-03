@@ -2,7 +2,7 @@
   $width: min(100%, percentage($block-column / $zone-columns));
 
   @if $gutter > 0 {
-    width: calc(#{$width} - (#{$gutter * 2}));
+    width: calc(#{$width} - #{$gutter * 2});
   }
   @else {
     width: $width;
