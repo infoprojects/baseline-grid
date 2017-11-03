@@ -9,8 +9,8 @@ var gulp = require('gulp'),
 gulp.task('default', ['build-sass', 'build-views', 'serve', 'watch']);
 
 gulp.task('watch', function () {
-  gulp.watch(`${paths.source.scss}/**/*.scss`, ['build-sass']);
-  gulp.watch(`${paths.source.pug}/*.pug`, ['build-views']);
+  gulp.watch(path.join(paths.source.scss, '**/*.scss'), ['build-sass']);
+  gulp.watch(path.join(paths.source.pug, '/*.pug'), ['build-views']);
 });
 
 gulp.task('serve', function () {
@@ -19,7 +19,7 @@ gulp.task('serve', function () {
       baseDir: paths.dest.baseDir,
       directory: true
     },
-    files: [`${paths.dest.baseDir}/**/*`]
+    files: [path.join(paths.dest.baseDir, '**/*')]
   });
 });
 
