@@ -1,19 +1,33 @@
 @if $debug-color == true {
-  $map: (
-    1: lightblue,
-    2: lightgreen,
-    3: lightyellow,
-    4: darkgray,
-    5: lightgrey,
-    6: lightpink,
-    9: lightgray,
-    12: lightslategrey,
-    15: lightcoral
+  $blok-colors: (
+    1: #4ac700,
+    2: #d10031,
+    3: #abda00,
+    4: #a10087,
+    5: #bf42ab,
+    6: #ed5276,
+    7: #86e44e,
+    8: #d3f655,
+    9: #b41e9c,
+    10: #ea2755,
+    11: #6adf25,
+    12: #c9f429,
+    13: #81006d,
+    14: #a80027,
+    15: #3ca000,
+    16: #8ab000,
+    17: #82001e,
+    18: #2e7c00,
+    19: #6b8800,
+    20: #640054
   );
-  
-  @each $i, $color in $map {
+
+  $inner-padding-color: rgba(51, 51, 51, .295);
+  $zone-color: #ccc;
+
+  @each $i, $color in $blok-colors {
     .grid-blok.grid_#{$i} {
-      background-color: rgba(51, 51, 51, 0.295);
+      background-color: $inner-padding-color;
 
       .grid-title,
       .grid-inside {
@@ -23,10 +37,17 @@
   }
 
   .grid-zone {
-    background-color: rgb(235, 235, 235);
+    background: linear-gradient(135deg, lighten($zone-color, 10%) 0%, darken($zone-color, 30%) 100%);
+    background-color: $zone-color;
   }
 
-  h2, p {
+  * {
+    font-family: "Roboto Condensed", sans-serif;
+  }
+
+  h2,
+  p {
+    line-height: 1.5;
     margin: 0;
   }
 }
