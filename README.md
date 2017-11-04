@@ -32,6 +32,8 @@
 
 ## Config properties
 
+Listed below are all options, with their defaults
+
 ```scss
 $baseline-config: (
   zones: (
