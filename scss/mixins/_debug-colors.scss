@@ -27,6 +27,7 @@
 
   @each $i, $color in $blok-colors {
     .grid-blok.grid_#{$i} {
+      background: linear-gradient(135deg, darken($inner-padding-color, 10%) 0%, lighten($inner-padding-color, 30%) 100%);
       background-color: $inner-padding-color;
 
       .grid-title,
