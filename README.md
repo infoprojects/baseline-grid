@@ -78,8 +78,7 @@ $baseline-config: (
   column-width: 100px,
   gutter: 0,
   outer-padding: 10px,
-  inner-padding: 10px,
-  debug-color: false
+  inner-padding: 10px
 );
 
 @import "mixins/baseline-loader";
