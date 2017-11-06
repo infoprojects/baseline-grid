@@ -28,14 +28,14 @@ body {
 }
 
 .grid-zone {
-  &.expand-to-page {
+  &.is-fullwidth-zone.expand-to-page {
     clear: both;
     float: left;
     margin-left: -100%;
     margin-right: -100%;
     padding-left: 100%;
     padding-right: 100%;
-    width: 100%;
+    width: 300%;
   }
 }
 

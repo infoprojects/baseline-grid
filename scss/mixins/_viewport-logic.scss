@@ -7,6 +7,12 @@ $wrapper-width: $container-size + 20px;
   max-width: $wrapper-width;
 }
 
+.container_#{$columns-large} {
+  width: $container-size;
+  padding-left: $outer-padding;
+  padding-right: $outer-padding;
+}
+
 @each $zone in $zones {
   $zone-columns: map-get($zone, columns);
   $zone-blocks: map-get($zone, blocks);
