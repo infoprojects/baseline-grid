@@ -1,16 +1,11 @@
 @import "functions";
 
-$container-size: $current-columns * $column-width;
-$wrapper-width: $container-size + 20px;
-
 .wrapper_#{$columns-large} {
-  max-width: $wrapper-width;
+  @include grid-wrapper;
 }
 
 .container_#{$columns-large} {
-  width: $container-size;
-  padding-left: $outer-padding;
-  padding-right: $outer-padding;
+  @include grid-container;
 }
 
 @each $zone in $zones {

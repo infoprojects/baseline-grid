@@ -15,8 +15,13 @@ $columns-large: map-get($baseline, columns-large);
 $pushes: map-get($baseline, pushes);
 $pulls: map-get($baseline, pulls);
 
+$container-gutter: map-get($baseline, container-gutter);
+
 $gutter: map-get($baseline, gutter);
 $outer-padding: map-get($baseline, outer-padding);
 $inner-padding: map-get($baseline, inner-padding);
 
 $debug-color: map-get($baseline, debug-color);
+
+// ------
+$container-gutter: 2 * $outer-padding + 2 * $gutter !default;

@@ -1,3 +1,14 @@
+$container-width: $current-columns * $column-width;
+
+@mixin grid-wrapper {
+  $wrapper-width: $container-width + $container-gutter * 2;
+  max-width: $wrapper-width;
+}
+
+@mixin grid-container {
+  width: $container-width;
+}
+
 @mixin grid-blok($block-column, $zone-columns) {
   $width: min(100%, percentage($block-column / $zone-columns));
 

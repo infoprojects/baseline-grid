@@ -1,0 +1,29 @@
+doctype html
+html
+
+  head
+    title expand-zone
+    link(rel='stylesheet' href='../css/example-expand-zone.css')
+
+  body
+    .canvas
+      main
+        .grid-wrapper.wrapper_12
+          .grid-container.container_12
+            .grid-zone.grid_12.is-fullwidth-zone.expand-to-page
+              .grid-row
+                each column in [12]
+                  include includes/grid-blok
+            .clear
+            .grid-zone.grid_9.push_3
+              each column in [3, 3, 3, { prefix: 2, column: 5, suffix: 2 }, 6, 3, 3, 6, 9 ]
+                include includes/grid-blok
+            .grid-zone.grid_3.pull_9
+              each column in [3, 3, 3, 3, 3]
+                include includes/grid-blok
+            .clear
+            .grid-zone.grid_12
+              .grid-row
+                each column in [12]
+                  include includes/grid-blok
+            .clear

@@ -4,39 +4,8 @@ body {
   padding: 0;
 }
 
-.grid-wrapper {
-  margin: 0 auto;
-  max-width: 100%;
-
-  &.expand-to-page {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-.grid-container {
-  margin: 0 auto;
-
-  &.breakout-container {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-  }
-}
-
-.grid-zone {
-  &.is-fullwidth-zone.expand-to-page {
-    clear: both;
-    float: left;
-    margin-left: -100%;
-    margin-right: -100%;
-    padding-left: 100%;
-    padding-right: 100%;
-    width: 300%;
-  }
+.canvas {
+  overflow-x: hidden;
 }
 
 .grid-blok,
@@ -47,11 +16,6 @@ body {
 
 .clear {
   clear: both;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
 }
 
 .grid-wrapper,

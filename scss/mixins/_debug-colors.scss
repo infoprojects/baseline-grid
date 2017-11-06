@@ -37,6 +37,10 @@
     }
   }
 
+  .wrapper_#{$columns-large} {
+    background-color: #ddee9b;
+  }
+
   .grid-zone {
     background: linear-gradient(135deg, lighten($zone-color, 10%) 0%, darken($zone-color, 30%) 100%);
     background-color: $zone-color;
