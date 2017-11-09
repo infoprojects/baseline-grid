@@ -8,6 +8,25 @@
   @include grid-container;
 }
 
+@mixin grid-nesting($block-column, $zone-columns, $level, $pow: $level + 1) {
+  .grid-nesting {
+    .grid-blok.grid_#{$block-column} {
+      $width: min(100%, percentage($block-column / $zone-columns) * $pow);
+
+      @if $gutter > 0 {
+        width: calc(#{$width} - #{$gutter * 2});
+      }
+      @else {
+        width: $width;
+      }
+
+      @if $level + 1 < $depth and $width < 100 {
+        @include grid-nesting($block-column, $zone-columns, $level + 1, $pow * 2);
+      }
+    }
+  }
+}
+
 @each $zone in $zones {
   $zone-columns: map-get($zone, columns);
   $zone-blocks: map-get($zone, blocks);
@@ -18,6 +37,12 @@
     @each $block in $zone-blocks {
       .grid-blok.grid_#{$block} {
         @include grid-blok($block, min($zone-columns, $current-columns));
+
+        @each $nested-block in $zone-blocks {
+          @if $depth > 0 {
+            @include grid-nesting($nested-block, $zone-columns, 1);
+          }
+        }
       }
     }
   }

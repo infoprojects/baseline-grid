@@ -1,0 +1,14 @@
+$baseline-config: (
+  zones: (
+    (columns: 12, blocks: (12, 6, 3)),
+    (columns: 6, blocks: (6, 3)),
+    (columns: 3, blocks: (3))
+  ),
+  depth: 10,
+  gutter: 10px,
+  outer-padding: 10px,
+  inner-padding: 7.5px,
+  debug-color: true
+);
+
+@import "mixins/baseline-loader";

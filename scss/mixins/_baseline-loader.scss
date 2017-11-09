@@ -1,22 +1,33 @@
-@import 'map-to-vars';
-@import 'init';
-@import 'grid-settings';
-@import 'grid-modifiers';
-@import 'iprox';
-@import 'debug-colors';
+@mixin margin-horizontal($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-horizontal($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@import "map-to-vars";
+@import "init";
+@import "grid-settings";
+@import "grid-modifiers";
+@import "grid-nesting";
+@import "iprox";
+@import "debug-colors";
 
 @media screen and (max-width: $grid-mq-small) {
   $current-columns: $columns-small;
-  @import 'viewport-logic';
+  @import "viewport-logic";
 }
 
 @media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
   $current-columns: $columns-medium;
-  @import 'viewport-logic';
+  @import "viewport-logic";
 }
 
 @media screen and (min-width: $grid-mq-medium + 1) {
   $current-columns: $columns-large;
-  @import 'viewport-logic';
-  @import 'large-logic';
+  @import "viewport-logic";
+  @import "large-logic";
 }
