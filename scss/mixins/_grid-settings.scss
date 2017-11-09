@@ -4,13 +4,8 @@ body {
   padding: 0;
 }
 
-.grid-wrapper {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-.grid-container {
-  margin: 0 auto;
+.canvas {
+  overflow-x: hidden;
 }
 
 .grid-blok,
@@ -21,11 +16,6 @@ body {
 
 .clear {
   clear: both;
-  display: block;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
 }
 
 .grid-wrapper,
