@@ -1,22 +1,22 @@
-@import "map-to-vars";
-@import "init";
-@import "grid-settings";
-@import "grid-modifiers";
-@import "iprox";
-@import "debug-colors";
+@import 'map-to-vars';
+@import 'init';
+@import 'grid-settings';
+@import 'grid-modifiers';
+@import 'iprox';
+@import 'debug-colors';
 
 @media screen and (max-width: $grid-mq-small) {
   $current-columns: $columns-small;
-  @import "viewport-logic";
+  @import 'viewport-logic';
 }
 
 @media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
   $current-columns: $columns-medium;
-  @import "viewport-logic";
+  @import 'viewport-logic';
 }
 
 @media screen and (min-width: $grid-mq-medium + 1) {
   $current-columns: $columns-large;
-  @import "viewport-logic";
-  @import "large-logic";
+  @import 'viewport-logic';
+  @import 'large-logic';
 }
