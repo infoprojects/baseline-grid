@@ -1,0 +1,22 @@
+$baseline-config: (
+  viewports: (
+    (alias: "small", max: 480px, columns: 3),
+    (alias: "medium", min: 481px, max: 768px, columns: 6),
+    (alias: "large", min: 769px, columns: 12),
+    (alias: "extra-large", min: 1400px, columns: 15),
+    (alias: "extra-extra-large", min: 1600px, columns: 20),
+  ),
+  zones: (
+    (columns: 20, blocks: (20)),
+    (columns: 15, blocks: (15, 5)),
+    (columns: 12, blocks: (12, 6, 6)),
+    (columns: 8, blocks: (8)),
+    (columns: 5, blocks: (5))
+  ),
+  columns-large: 20,
+  outer-padding: 20px,
+  inner-padding: 10px,
+  debug-color: true
+);
+
+@import "mixins/baseline-loader";

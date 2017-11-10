@@ -1,0 +1,29 @@
+doctype html
+html
+
+  head
+    title viewports
+    link(rel='stylesheet' href='../css/example-viewports.css')
+
+  body
+    .canvas
+      main
+        .grid-wrapper.wrapper_20
+          .grid-container.container_20
+            .grid-zone.grid_20
+              each column in [20]
+                include includes/grid-blok
+            .grid-zone.grid_15
+              each column in [15]
+                include includes/grid-blok
+            .grid-zone.grid_5
+              each column in [5]
+                include includes/grid-blok
+            .grid-zone.grid_12
+              each column in [12]
+                include includes/grid-blok
+            .grid-zone.grid_8
+              each column in [8]
+                include includes/grid-blok
+
+
