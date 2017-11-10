@@ -1,4 +1,4 @@
-@import 'functions';
+@import "functions";
 
 .wrapper_#{$columns-large} {
   @include grid-wrapper;

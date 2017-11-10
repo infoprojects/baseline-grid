@@ -1,0 +1,18 @@
+$baseline-config: (
+  viewports: (
+    (alias: "small", max: 1399px, columns: 6, fluid: true),
+    (alias: "large", min: 1400px, columns: 12, fluid: false),
+  ),
+  zones: (
+    (columns: 12, blocks: (12, 6)),
+    (columns: 6, blocks: (6, 3)),
+  ),
+  columns-large: 12,
+  pushes: (6),
+  pulls: (6),
+  outer-padding: 20px,
+  inner-padding: 10px,
+  debug-color: true
+);
+
+@import "mixins/baseline-loader";

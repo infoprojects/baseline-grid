@@ -11,35 +11,9 @@ $baseline-config: (
   ),
   pushes: (3),
   pulls: (9),
-  outer-padding: 15px,
-  inner-padding: 15px,
-  gutter: 10px,
-  container-gutter: 250px
+  outer-padding: 20px,
+  inner-padding: 10px,
+  debug-color: true
 );
 
 @import "mixins/baseline-loader";
-
-.grid-wrapper {
-  background-color: #efefef;
-}
-
-.grid-edge {
-  background-color: #fff;
-}
-
-.grid-element {
-  padding-bottom: 1.25em;
-}
-
-h2 {
-  border-bottom: 1px solid seagreen;
-}
-
-h1, h2, p {
-  color: seagreen;
-  margin: 0;
-}
-
-* {
-  font-family: "Roboto Condensed", sans-serif;
-}
