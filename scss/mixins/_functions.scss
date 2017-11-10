@@ -19,3 +19,25 @@ $wrapper-width: $container-width + $container-gutter * 2;
     width: $width;
   }
 }
+
+
+@mixin grid-nesting($block-column, $zone-columns, $level, $pow: $level + 1) {
+  @debug(pow $pow);
+  @debug($level);
+  .grid-nesting {
+    .grid-blok.grid_#{$block-column} {
+      $width: min(100%, percentage($block-column / $zone-columns) * $pow);
+
+      @if $gutter > 0 {
+        width: calc(#{$width} - #{$gutter * 2});
+      }
+      @else {
+        width: $width;
+      }
+
+      @if $level + 1 < $depth and $width < 100 {
+        @include grid-nesting($block-column, $zone-columns, $level + 1, $pow * 2);
+      }
+    }
+  }
+}
