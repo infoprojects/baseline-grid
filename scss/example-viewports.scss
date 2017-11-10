@@ -1,10 +1,10 @@
 $baseline-config: (
   viewports: (
-    (alias: "small", max: 480px, columns: 3),
-    (alias: "medium", min: 481px, max: 768px, columns: 6),
-    (alias: "large", min: 769px, columns: 12),
-    (alias: "extra-large", min: 1400px, columns: 15),
-    (alias: "extra-extra-large", min: 1600px, columns: 20),
+    (alias: "small", max: 480px, columns: 3, fluid: true),
+    (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false),
+    (alias: "large", min: 769px, columns: 12, fluid: false),
+    (alias: "extra-large", min: 1400px, columns: 15, fluid: false),
+    (alias: "extra-extra-large", min: 1600px, columns: 20, fluid: false),
   ),
   zones: (
     (columns: 20, blocks: (20)),

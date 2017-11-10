@@ -1,7 +1,7 @@
 $baseline-config: (
   viewports: (
-    (alias: "small", max: 1399px, columns: 6),
-    (alias: "large", min: 1400px, columns: 12),
+    (alias: "small", max: 1399px, columns: 6, fluid: true),
+    (alias: "large", min: 1400px, columns: 12, fluid: false),
   ),
   zones: (
     (columns: 12, blocks: (12, 6)),
