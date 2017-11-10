@@ -1,4 +1,9 @@
 $baseline-default: (
+  viewports: (
+    (alias: "small", max: 480px, columns: 3),
+    (alias: "medium", min: 481px, max: 768px, columns: 6),
+    (alias: "large", min: 769px, columns: 12)
+  ),
   zones: (
     (columns: 12, blocks: (12, 9, 6, 3))
   ),
