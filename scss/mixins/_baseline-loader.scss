@@ -16,18 +16,61 @@
 @import "iprox";
 @import "debug-colors";
 
-@media screen and (max-width: $grid-mq-small) {
-  $current-columns: $columns-small;
-  @import "viewport-logic";
-}
+@each $viewport in map-get($baseline, viewports) {
 
-@media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
-  $current-columns: $columns-medium;
-  @import "viewport-logic";
-}
+  @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
+    $min: map-get($viewport, min);
+    $max: map-get($viewport, max);
+    $fluid: map-get($viewport, fluid);
 
-@media screen and (min-width: $grid-mq-medium + 1) {
-  $current-columns: $columns-large;
-  @import "viewport-logic";
-  @import "large-logic";
+    @media screen and (min-width: $min) and (max-width: $max) {
+      $current-columns: map-get($viewport, columns);
+      @if $fluid == true {
+        $wrapper-width: 100%;
+        $container-width: 100%;
+      }
+      @else if $fluid == false {
+        $container-width: $current-columns * $column-width;
+        $wrapper-width: $container-width + $container-gutter * 2;
+      }
+      @import "viewport-logic";
+    }
+  }
+  @else if (map-has-key($viewport, max)) {
+    $max: map-get($viewport, max);
+    $fluid: map-get($viewport, fluid);
+
+    @media screen and (max-width: $max) {
+      $current-columns: map-get($viewport, columns);
+
+      @if $fluid == true {
+        $wrapper-width: 100%;
+        $container-width: 100%;
+      }
+      @else if $fluid == false {
+        $container-width: $current-columns * $column-width;
+        $wrapper-width: $container-width + $container-gutter * 2;
+      }
+      @import "viewport-logic";
+    }
+  }
+  @else if (map-has-key($viewport, min)) {
+    $min: map-get($viewport, min);
+    $fluid: map-get($viewport, fluid);
+
+    @media screen and (min-width: $min) {
+      $current-columns: map-get($viewport, columns);
+
+      @if $fluid == true {
+        $wrapper-width: 100%;
+        $container-width: 100%;
+      }
+      @else if $fluid == false {
+        $container-width: $current-columns * $column-width;
+        $wrapper-width: $container-width + $container-gutter * 2;
+      }
+      @import "viewport-logic";
+      @import "large-logic";
+    }
+  }
 }

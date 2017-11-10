@@ -18,10 +18,12 @@
     @each $block in $zone-blocks {
       .grid-blok.grid_#{$block} {
         @include grid-blok($block, min($zone-columns, $current-columns));
-        @each $nested-block in $zone-blocks {
 
-          @if $depth > 0 {
-            @include grid-nesting($nested-block, $zone-columns, 1);
+        @if $depth > 0 {
+          @each $nested-block in $zone-blocks {
+            @if $nested-block <= $block {
+              @include grid-nesting($nested-block, $block);
+            }
           }
         }
       }

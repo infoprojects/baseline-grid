@@ -1,6 +1,3 @@
-$container-width: $current-columns * $column-width;
-$wrapper-width: $container-width + $container-gutter * 2;
-
 @mixin grid-wrapper {
   max-width: $wrapper-width;
 }
@@ -20,24 +17,22 @@ $wrapper-width: $container-width + $container-gutter * 2;
   }
 }
 
+@mixin grid-nesting($block-column, $zone-columns, $level: 1, $pow: $level) {
+  $multiplier: $zone-columns / $block-column;
 
-@mixin grid-nesting($block-column, $zone-columns, $level, $pow: $level + 1) {
-  @debug(pow $pow);
-  @debug($level);
-  .grid-nesting {
-    .grid-blok.grid_#{$block-column} {
-      $width: min(100%, percentage($block-column / $zone-columns) * $pow);
+  .grid-blok.grid_#{$block-column} {
+    $width: min(100%, percentage($block-column / $zone-columns) * $multiplier);
+    --level: $level;
 
-      @if $gutter > 0 {
-        width: calc(#{$width} - #{$gutter * 2});
-      }
-      @else {
-        width: $width;
-      }
+    @if $gutter > 0 {
+      width: calc(#{$width} - #{$gutter * 2});
+    }
+    @else {
+      width: $width;
+    }
 
-      @if $level + 1 < $depth and $width < 100 {
-        @include grid-nesting($block-column, $zone-columns, $level + 1, $pow * 2);
-      }
+    @if $level + 1 < $depth and $width < 100 {
+      @include grid-nesting($block-column, $zone-columns, $level + 1, $multiplier);
     }
   }
 }
