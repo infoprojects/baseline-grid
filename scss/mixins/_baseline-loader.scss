@@ -26,6 +26,7 @@
         @else {
           $container-width: $current-columns * $column-width;
         }
+        $container-width: $current-columns * $column-width;
         $wrapper-width: $container-width + $container-gutter * 2;
       }
       @import "viewport-logic";
@@ -35,6 +36,7 @@
     $max: map-get($viewport, max);
     $fluid: map-get($viewport, fluid);
     $override-width: map-get($viewport, override-container);
+
 
     @media screen and (max-width: $max) {
       $current-columns: map-get($viewport, columns);
@@ -50,6 +52,7 @@
         @else {
           $container-width: $current-columns * $column-width;
         }
+        $container-width: $current-columns * $column-width;
         $wrapper-width: $container-width + $container-gutter * 2;
       }
       @import "viewport-logic";
@@ -74,6 +77,7 @@
         @else {
           $container-width: $current-columns * $column-width;
         }
+        $container-width: $current-columns * $column-width;
         $wrapper-width: $container-width + $container-gutter * 2;
       }
       @import "viewport-logic";
