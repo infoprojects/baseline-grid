@@ -22,11 +22,13 @@
       @else if $fluid == false {
         @if $override-width > 0 {
           $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
         @else {
           $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
-        $wrapper-width: $container-width + $container-gutter * 2;
+        
       }
       @import "viewport-logic";
     }
@@ -46,11 +48,12 @@
       @else if $fluid == false {
         @if $override-width > 0 {
           $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
         @else {
           $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
-        $wrapper-width: $container-width + $container-gutter * 2;
       }
       @import "viewport-logic";
     }
@@ -70,11 +73,12 @@
       @else if $fluid == false {
         @if $override-width > 0 {
           $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
         @else {
           $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
         }
-        $wrapper-width: $container-width + $container-gutter * 2;
       }
       @import "viewport-logic";
       @import "large-logic";
