@@ -28,7 +28,7 @@
           $container-width: $current-columns * $column-width;
           $wrapper-width: $container-width + $container-gutter * 2;
         }
-        
+
       }
       @import "viewport-logic";
     }
