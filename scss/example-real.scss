@@ -1,45 +1,45 @@
-// $baseline-config: (
-//   viewports: (
-//     (alias: "small", max: 480px, columns: 3, fluid: true),
-//     (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false),
-//     (alias: "large", min: 769px, columns: 12, fluid: false)
-//   ),
-//   zones: (
-//     (columns: 12, blocks: (12, 6, 6)),
-//     (columns: 9, blocks: (9, 6, 5, 3, 2)),
-//     (columns: 3, blocks: (3))
-//   ),
-//   pushes: (3),
-//   pulls: (9),
-//   outer-padding: 15px,
-//   inner-padding: 15px,
-//   gutter: 10px,
-//   container-gutter: 250px
-// );
+$baseline-config: (
+  viewports: (
+    (alias: "small", max: 480px, columns: 3, fluid: true),
+    (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false),
+    (alias: "large", min: 769px, columns: 12, fluid: false)
+  ),
+  zones: (
+    (columns: 12, blocks: (12, 6, 6)),
+    (columns: 9, blocks: (9, 6, 5, 3, 2)),
+    (columns: 3, blocks: (3))
+  ),
+  pushes: (3),
+  pulls: (9),
+  outer-padding: 15px,
+  inner-padding: 15px,
+  gutter: 10px,
+  container-gutter: 250px
+);
 
-// @import "mixins/baseline-loader";
+@import "mixins/baseline-loader";
 
-// .grid-wrapper {
-//   background-color: #efefef;
-// }
+.grid-wrapper {
+  background-color: #efefef;
+}
 
-// .grid-edge {
-//   background-color: #fff;
-// }
+.grid-edge {
+  background-color: #fff;
+}
 
-// .grid-element {
-//   padding-bottom: 1.25em;
-// }
+.grid-element {
+  padding-bottom: 1.25em;
+}
 
-// h2 {
-//   border-bottom: 1px solid seagreen;
-// }
+h2 {
+  border-bottom: 1px solid seagreen;
+}
 
-// h1, h2, p {
-//   color: seagreen;
-//   margin: 0;
-// }
+h1, h2, p {
+  color: seagreen;
+  margin: 0;
+}
 
-// * {
-//   font-family: "Roboto Condensed", sans-serif;
-// }
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}

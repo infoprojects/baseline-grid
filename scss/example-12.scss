@@ -1,19 +1,19 @@
-// $baseline-config: (
-//   viewports: (
-//     (alias: "small", max: 480px, columns: 3, fluid: true),
-//     (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false),
-//     (alias: "large", min: 769px, columns: 12, fluid: false)
-//   ),
-//   zones: (
-//     (columns: 12, blocks: (12, 9, 6, 3, 1)),
-//     (columns: 9, blocks: (9, 6, 3, 1)),
-//     (columns: 6, blocks: (6, 3, 1)),
-//     (columns: 3, blocks: (3))
-//   ),
-//   column-width: 100px,
-//   outer-padding: 20px,
-//   inner-padding: 10px,
-//   debug-color: true
-// );
+$baseline-config: (
+  viewports: (
+    (alias: "small", max: 480px, columns: 3, fluid: true),
+    (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false),
+    (alias: "large", min: 769px, columns: 12, fluid: false)
+  ),
+  zones: (
+    (columns: 12, blocks: (12, 9, 6, 3, 1)),
+    (columns: 9, blocks: (9, 6, 3, 1)),
+    (columns: 6, blocks: (6, 3, 1)),
+    (columns: 3, blocks: (3))
+  ),
+  column-width: 100px,
+  outer-padding: 20px,
+  inner-padding: 10px,
+  debug-color: true
+);
 
-// @import "mixins/baseline-loader";
+@import "mixins/baseline-loader";
