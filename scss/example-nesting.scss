@@ -6,12 +6,12 @@ $baseline-config: (
   ),
   zones: (
     (columns: 12, blocks: (12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)),
-    (columns: 6, blocks: (6, 3)),
+    (columns: 9, blocks: (9, 8, 7, 6, 5, 4, 3, 2, 1)),
+    (columns: 6, blocks: (6, 4, 3, 2, 1)),
     (columns: 3, blocks: (3))
   ),
-  depth: 3,
-  gutter: 0,
-  outer-padding: 0,
+  gutter: 10px,
+  outer-padding: 10px,
   inner-padding: 0,
   debug-color: true
 );
