@@ -11,6 +11,7 @@
     $min: map-get($viewport, min);
     $max: map-get($viewport, max);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (min-width: $min) and (max-width: $max) {
       $current-columns: map-get($viewport, columns);
@@ -19,8 +20,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
     }
@@ -28,6 +35,7 @@
   @else if (map-has-key($viewport, max)) {
     $max: map-get($viewport, max);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (max-width: $max) {
       $current-columns: map-get($viewport, columns);
@@ -37,8 +45,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
     }
@@ -46,6 +60,7 @@
   @else if (map-has-key($viewport, min)) {
     $min: map-get($viewport, min);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (min-width: $min) {
       $current-columns: map-get($viewport, columns);
@@ -55,8 +70,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
       @import "large-logic";
