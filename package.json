@@ -1,5 +1,5 @@
 {
-  "name": "@infoprojects-nl/baseline-grid",
+  "name": "@infoprojects/baseline-grid",
   "version": "0.0.6",
   "description": "Responsive fluid grid system",
   "main": "baseline.scss",
