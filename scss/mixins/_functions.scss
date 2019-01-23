@@ -1,6 +1,3 @@
-$container-width: $current-columns * $column-width;
-$wrapper-width: $container-width + $container-gutter * 2;
-
 @mixin grid-wrapper {
   max-width: $wrapper-width;
 }

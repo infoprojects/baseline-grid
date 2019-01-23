@@ -1,4 +1,4 @@
-@import 'baseline-default';
+@import "baseline-default";
 
 $baseline: map-merge($baseline-default, $baseline-config);
 
@@ -22,6 +22,9 @@ $outer-padding: map-get($baseline, outer-padding);
 $inner-padding: map-get($baseline, inner-padding);
 
 $debug-color: map-get($baseline, debug-color);
+
+$container-width: 0px;
+$wrapper-width: 0px;
 
 // ------
 $container-gutter: 2 * $outer-padding + 2 * $gutter !default;

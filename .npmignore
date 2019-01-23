@@ -1,3 +1,5 @@
-/node_modules
 /*.lock
+/node_modules
 /css
+/public
+/views
