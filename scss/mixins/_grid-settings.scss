@@ -22,7 +22,11 @@ body {
 .grid-container,
 .grid-zone,
 .grid-blok,
-.grid-element {
+.grid-element,
+.grid-edge
+.grid-title,
+.grid-inside,
+.grid-nesting {
   box-sizing: border-box;
 }
 

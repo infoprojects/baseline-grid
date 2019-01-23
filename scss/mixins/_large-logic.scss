@@ -1,6 +1,7 @@
 // sass-lint:disable class-name-format
 .grid-zone {
   @each $push in $pushes {
+
     &.push_#{$push} {
       left: percentage($push / $current-columns);
     }

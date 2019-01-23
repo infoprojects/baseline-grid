@@ -3,6 +3,8 @@
 $baseline: map-merge($baseline-default, $baseline-config);
 
 $zones: map-get($baseline, zones);
+$depth: map-get($baseline, depth);
+
 $column-width: map-get($baseline, column-width);
 
 $grid-mq-small: map-get($baseline, grid-mq-small);

@@ -5,6 +5,16 @@
 @import "iprox";
 @import "debug-colors";
 
+@mixin margin-horizontal($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-horizontal($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
 @each $viewport in map-get($baseline, viewports) {
 
   @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
