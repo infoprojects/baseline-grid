@@ -1,3 +1,10 @@
+@import "map-to-vars";
+@import "init";
+@import "grid-settings";
+@import "grid-modifiers";
+@import "iprox";
+@import "debug-colors";
+
 @mixin margin-horizontal($margin) {
   margin-left: $margin;
   margin-right: $margin;
@@ -8,20 +15,13 @@
   padding-right: $padding;
 }
 
-@import "map-to-vars";
-@import "init";
-@import "grid-settings";
-@import "grid-modifiers";
-@import "grid-nesting";
-@import "iprox";
-@import "debug-colors";
-
 @each $viewport in map-get($baseline, viewports) {
 
   @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
     $min: map-get($viewport, min);
     $max: map-get($viewport, max);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (min-width: $min) and (max-width: $max) {
       $current-columns: map-get($viewport, columns);
@@ -30,8 +30,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
     }
@@ -39,6 +45,7 @@
   @else if (map-has-key($viewport, max)) {
     $max: map-get($viewport, max);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (max-width: $max) {
       $current-columns: map-get($viewport, columns);
@@ -48,8 +55,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
     }
@@ -57,6 +70,7 @@
   @else if (map-has-key($viewport, min)) {
     $min: map-get($viewport, min);
     $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
 
     @media screen and (min-width: $min) {
       $current-columns: map-get($viewport, columns);
@@ -66,8 +80,14 @@
         $container-width: 100%;
       }
       @else if $fluid == false {
-        $container-width: $current-columns * $column-width;
-        $wrapper-width: $container-width + $container-gutter * 2;
+        @if $override-width > 0 {
+          $container-width: $override-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
+        @else {
+          $container-width: $current-columns * $column-width;
+          $wrapper-width: $container-width + $container-gutter * 2;
+        }
       }
       @import "viewport-logic";
       @import "large-logic";
