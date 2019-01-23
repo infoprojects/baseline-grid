@@ -3,17 +3,9 @@
 @import "grid-settings";
 @import "grid-modifiers";
 @import "iprox";
+@import "horizontal-mixin";
 @import "debug-colors";
-
-@mixin margin-horizontal($margin) {
-  margin-left: $margin;
-  margin-right: $margin;
-}
-
-@mixin padding-horizontal($padding) {
-  padding-left: $padding;
-  padding-right: $padding;
-}
+@import "grid-nesting";
 
 @each $viewport in map-get($baseline, viewports) {
 

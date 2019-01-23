@@ -1,0 +1,9 @@
+@mixin margin-horizontal($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-horizontal($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
