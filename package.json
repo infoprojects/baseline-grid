@@ -1,27 +1,26 @@
 {
-  "name": "@infoprojects-nl/baseline-grid",
+  "name": "@infoprojects/baseline-grid",
   "version": "0.0.7",
   "description": "Responsive fluid grid system",
-  "main": "baseline.scss",
   "scripts": {
     "gulp": "gulp -- ",
     "sass": "gulp build-sass"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infoprojects-nl/baseline-grid.git"
+    "url": "git+https://github.com/infoprojects/baseline-grid.git"
   },
   "author": "Ad van Pinxteren <ad.van.pinxteren@infoprojects.nl> (http://www.infoprojects.nl/)",
   "license": "MIT",
   "bugs": {
     "email": "ad.van.pinxteren@infoprojects.nl"
   },
-  "homepage": "https://github.com/infoprojects-nl/baseline-grid#readme",
+  "homepage": "https://github.com/infoprojects/baseline-grid#readme",
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0"
+    "browser-sync": "2.18.13",
+    "gulp": "3.9.1",
+    "gulp-pug": "3.3.0",
+    "gulp-sass": "3.1.0"
   }
 }
