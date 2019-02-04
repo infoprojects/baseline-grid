@@ -3,7 +3,7 @@
   $grid-mq-min: map-get($value, min );
   $grid-columns: map-get($value, columns);
 
-  @if($grid-mq-min == null) {
+  @if ($grid-mq-min == null) {
     @media screen and (max-width: $grid-mq-max) {
       $breakout: $grid-columns * $column-width;
       $wrapper-width: $breakout + $container-gutter * 2;
@@ -23,7 +23,7 @@
     }
   }
 
-  @if($grid-mq-max == null) {
+  @if ($grid-mq-max == null) {
     @media screen and (min-width: $grid-mq-min + 1) {
       $breakout: $grid-columns * $column-width;
       $wrapper-width: $breakout + $container-gutter * 2;
@@ -43,7 +43,7 @@
     }
   }
 
-  @if($grid-mq-max != null and $grid-mq-min != null ) {
+  @if ($grid-mq-max != null and $grid-mq-min != null ) {
     @media screen and (min-width: $grid-mq-min + 1) and (max-width: $grid-mq-max) {
       $breakout: $grid-columns * $column-width;
       $wrapper-width: $breakout + $container-gutter * 2;
