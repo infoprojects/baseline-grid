@@ -10,8 +10,8 @@ $column-width: map-get($baseline, column-width);
 $grid-mq-small: map-get($baseline, grid-mq-small);
 $grid-mq-medium: map-get($baseline, grid-mq-medium);
 
-$columns-small: map-get($baseline, columns-small);
-$columns-medium: map-get($baseline, columns-medium);
+$viewports: map-get($baseline, viewports);
+
 $columns-large: map-get($baseline, columns-large);
 
 $pushes: map-get($baseline, pushes);
