@@ -1,53 +1,65 @@
-@media screen and (max-width: $grid-mq-small) {
-  $breakout: $columns-small * $column-width;
-  $wrapper-width: $breakout + $container-gutter * 2;
+@each $value in $viewports {
+  $grid-mq-max: map-get($value, max );
+  $grid-mq-min: map-get($value, min );
+  $grid-columns: map-get($value, columns);
 
-  .breakout-container {
-    padding-left: calc((100% - #{$breakout}) / 2);
-    padding-right: calc((100% - #{$breakout}) / 2);
+  @if ($grid-mq-min == null) {
+    @media screen and (max-width: $grid-mq-max) {
+      $breakout: $grid-columns * $column-width;
+      $wrapper-width: $breakout + $container-gutter * 2;
+
+      .breakout-container {
+        padding-left: calc((100% - #{$breakout}) / 2);
+        padding-right: calc((100% - #{$breakout}) / 2);
+      }
+
+      .grid-zone.grid_12.breakout-zone {
+        margin-left: calc((100% - #{$wrapper-width}) / 2);
+        margin-right: calc((100% - #{$wrapper-width}) / 2);
+        padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
+        padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
+        width: $wrapper-width;
+      }
+    }
   }
 
-  .grid-zone.grid_12.breakout-zone {
-    margin-left: calc((100% - #{$wrapper-width}) / 2);
-    margin-right: calc((100% - #{$wrapper-width}) / 2);
-    padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
-    padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
-    width: $wrapper-width;
-  }
-}
+  @if ($grid-mq-max == null) {
+    @media screen and (min-width: $grid-mq-min + 1) {
+      $breakout: $grid-columns * $column-width;
+      $wrapper-width: $breakout + $container-gutter * 2;
 
-@media screen and (min-width: $grid-mq-small + 1) and (max-width: $grid-mq-medium) {
-  $breakout: $columns-medium * $column-width;
-  $wrapper-width: $breakout + $container-gutter * 2;
+      .breakout-container {
+        padding-left: calc((100% - #{$breakout}) / 2);
+        padding-right: calc((100% - #{$breakout}) / 2);
+      }
 
-  .breakout-container {
-    padding-left: calc((100% - #{$breakout}) / 2);
-    padding-right: calc((100% - #{$breakout}) / 2);
-  }
-
-  .grid-zone.grid_12.breakout-zone {
-    margin-left: calc((100% - #{$wrapper-width}) / 2);
-    margin-right: calc((100% - #{$wrapper-width}) / 2);
-    padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
-    padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
-    width: $wrapper-width;
-  }
-}
-
-@media screen and (min-width: $grid-mq-medium + 1) {
-  $breakout: $columns-large * $column-width;
-  $wrapper-width: $breakout + $container-gutter * 2;
-
-  .breakout-container {
-    padding-left: calc((100% - #{$breakout}) / 2);
-    padding-right: calc((100% - #{$breakout}) / 2);
+      .grid-zone.grid_12.breakout-zone {
+        margin-left: calc((100% - #{$wrapper-width}) / 2);
+        margin-right: calc((100% - #{$wrapper-width}) / 2);
+        padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
+        padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
+        width: $wrapper-width;
+      }
+    }
   }
 
-  .grid-zone.grid_12.breakout-zone {
-    margin-left: calc((100% - #{$wrapper-width}) / 2);
-    margin-right: calc((100% - #{$wrapper-width}) / 2);
-    padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
-    padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
-    width: $wrapper-width;
+  @if ($grid-mq-max != null and $grid-mq-min != null ) {
+    @media screen and (min-width: $grid-mq-min + 1) and (max-width: $grid-mq-max) {
+      $breakout: $grid-columns * $column-width;
+      $wrapper-width: $breakout + $container-gutter * 2;
+
+      .breakout-container {
+        padding-left: calc((100% - #{$breakout}) / 2);
+        padding-right: calc((100% - #{$breakout}) / 2);
+      }
+
+      .grid-zone.grid_12.breakout-zone {
+        margin-left: calc((100% - #{$wrapper-width}) / 2);
+        margin-right: calc((100% - #{$wrapper-width}) / 2);
+        padding-left: calc(0px - (100% - #{$wrapper-width}) / 2);
+        padding-right: calc(0px - (100% - #{$wrapper-width}) / 2);
+        width: $wrapper-width;
+      }
+    }
   }
 }
