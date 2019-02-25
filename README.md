@@ -61,6 +61,19 @@ $baseline-default: (
 
 ```
 Viewports: settings to configurate viewport small/medium/large.
+You can also configurate all viewports with one setting.
+Dont forget the `comma` after the map because otherwise you get a error in the `map-has-key` function.
+
+For example:
+```scss
+$baseline-config: (
+  viewports: (
+    (alias: "all", max: 1023px, columns: 12, fluid: true, override-container: 0px),
+  ),
+  ...
+)
+```
+
 max: max-width.
 min: min-width.
 columns: total columns.
