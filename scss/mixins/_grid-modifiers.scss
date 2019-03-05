@@ -25,6 +25,7 @@
 
 .grid-row.is-fullwidth-row.expand-to-page,
 .grid-zone.is-fullwidth-zone.expand-to-page {
+  box-sizing: border-box;
   clear: both;
   float: left;
   margin-left: -100%;
