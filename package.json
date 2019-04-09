@@ -1,6 +1,6 @@
 {
   "name": "@infoprojects/baseline-grid",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "Responsive fluid grid system",
   "scripts": {
     "gulp": "gulp -- ",
