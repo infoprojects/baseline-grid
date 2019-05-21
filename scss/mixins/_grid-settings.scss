@@ -46,7 +46,8 @@ body {
 
 @if $inner-padding > 0 {
   .grid-title,
-  .grid-inside {
+  .grid-inside,
+  .grid-box {
     padding-left: $inner-padding;
     padding-right: $inner-padding;
   }
