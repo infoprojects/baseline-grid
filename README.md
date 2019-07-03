@@ -1,13 +1,9 @@
 # Baseline grid
 
-## Prerequisites
-
-* `nodejs`, `npm`
-
 ## Getting started
 
 ```
->  npm install
+>  yarn
 >  gulp
 ```
 
