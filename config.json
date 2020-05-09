@@ -1,8 +1,8 @@
 {
   "paths" : {
     "source" : {
-      "scss" : "./scss",
-      "pug" :  "./views"
+      "scss": "./src/scss/*.scss",
+      "pug": "./src/views/*.pug"
     },
     "dest" : {
       "baseDir" : "./public",

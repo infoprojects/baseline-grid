@@ -1,19 +1,12 @@
-var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  pug = require('gulp-pug'),
-  config = require('./config.json'),
-  browserSync = require('browser-sync').create(),
-  paths = config.paths,
-  path = require('path');
+const { src, dest, series, parallel, watch } = require('gulp');
+const browserSync = require('browser-sync').create();
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const config = require('./config.json');
+const path = require('path');
+const paths = config.paths;
 
-gulp.task('default', ['build-sass', 'build-views', 'serve', 'watch']);
-
-gulp.task('watch', function () {
-  gulp.watch(path.join(paths.source.scss, '**/*.scss'), ['build-sass']);
-  gulp.watch(path.join(paths.source.pug, '/*.pug'), ['build-views']);
-});
-
-gulp.task('serve', function () {
+function serveFiles(done) {
   browserSync.init({
     server: {
       baseDir: paths.dest.baseDir,
@@ -21,26 +14,34 @@ gulp.task('serve', function () {
     },
     files: [path.join(paths.dest.baseDir, '**/*')]
   });
-});
+  done();
+}
 
-gulp.task('build-sass', function buildCss() {
-  return gulp
-    .src('*.scss', { cwd: paths.source.scss })
+function buildViews() {
+  return src(paths.source.pug)
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(dest(paths.dest.baseDir));
+}
+
+function buildCss() {
+  return src(paths.source.scss)
     .pipe(
       sass({
         includePaths: ['node_modules/susy/sass']
       })
     )
-    .pipe(gulp.dest(path.join(paths.dest.baseDir, paths.dest.css)));
-});
+    .pipe(dest(path.join(paths.dest.baseDir, paths.dest.css)))
+    .pipe(browserSync.stream());
+}
 
-gulp.task('build-views', function buildHtml() {
-  return gulp
-    .src('*.pug', { cwd: paths.source.pug })
-    .pipe(
-      pug({
-        pretty: true
-      })
-    )
-    .pipe(gulp.dest(path.join(paths.dest.baseDir, paths.dest.html)));
-});
+function watchFiles(done) {
+  watch(paths.source.scss, buildCss);
+  watch(paths.source.pug, buildViews);
+  done();
+}
+
+exports.css = buildCss;
+exports.views = buildViews;
+exports.default = series(buildViews, buildCss, serveFiles, watchFiles);

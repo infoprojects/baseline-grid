@@ -9,9 +9,9 @@
 
 ## Gulp tasks
 
-* `gulp` - run both tasks `views` and `build-sass`
+* `gulp` - run both tasks `views` and `css`
 * `gulp views` - compile pug files into html files
-* `gulp build-sass` - compile scss files into css files
+* `gulp css` - compile scss files into css files
 
 ## Simple example
 
