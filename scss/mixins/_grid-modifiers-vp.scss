@@ -24,7 +24,7 @@
   }
 
   @if ($grid-mq-max == null) {
-    @media screen and (min-width: $grid-mq-min + 1) {
+    @media screen and (min-width: $grid-mq-min) {
       $breakout: $grid-columns * $column-width;
       $wrapper-width: $breakout + $container-gutter * 2;
 
@@ -44,7 +44,7 @@
   }
 
   @if ($grid-mq-max != null and $grid-mq-min != null ) {
-    @media screen and (min-width: $grid-mq-min + 1) and (max-width: $grid-mq-max) {
+    @media screen and (min-width: $grid-mq-min) and (max-width: $grid-mq-max) {
       $breakout: $grid-columns * $column-width;
       $wrapper-width: $breakout + $container-gutter * 2;
 
