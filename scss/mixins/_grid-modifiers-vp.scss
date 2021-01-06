@@ -1,6 +1,6 @@
 @each $value in $viewports {
-  $grid-mq-max: breakpoint-max(map-get($value, max));
   $grid-mq-min: map-get($value, min);
+  $grid-mq-max: breakpoint-max(map-get($value, max));
   $grid-columns: map-get($value, columns);
 
   @if ($grid-mq-min == null) {
