@@ -42,3 +42,8 @@
     clear: both;
   }
 }
+
+// Based on: https://github.com/twbs/bootstrap/commit/93f51eb0e9c178ab7fb6399c21e3b0e7ba2ed792
+@function breakpoint-max($value) {
+  @return if($value and $value > 0, $value + .98, null);
+}
