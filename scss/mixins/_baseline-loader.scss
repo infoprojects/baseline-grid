@@ -12,7 +12,7 @@
 
   @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
     $min: map-get($viewport, min);
-    $max: map-get($viewport, max);
+    $max: breakpoint-max(map-get($viewport, max));
     $fluid: map-get($viewport, fluid);
     $override-width: map-get($viewport, override-container);
 
@@ -36,7 +36,7 @@
     }
   }
   @else if (map-has-key($viewport, max)) {
-    $max: map-get($viewport, max);
+    $max: breakpoint-max(map-get($viewport, max));
     $fluid: map-get($viewport, fluid);
     $override-width: map-get($viewport, override-container);
 
