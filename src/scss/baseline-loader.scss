@@ -1,0 +1,59 @@
+@import "../scss/mixins/map-to-vars";
+@import "../scss/mixins/debug-colors";
+
+.grid-container {
+  margin: 0 auto;
+  width: 1200px;
+
+  @for $i from 1 through 24 {
+    &.grid_#{$i} {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+
+  .grid-zone {
+    @for $i from 1 through 24 {
+      &.grid_#{$i} {
+        grid-column: auto / span $i;
+      }
+    }
+  }
+}
+
+.grid-zone {
+  display: grid;
+  grid-gap: 15px 15px;
+  grid-auto-flow: row;
+
+  @for $i from 1 through 24 {
+    &.grid_#{$i} {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+
+  .grid-blok {
+    @for $i from 1 through 24 {
+      &.grid_#{$i} {
+        grid-column: auto / span $i;
+      }
+    }
+
+    @for $i from 1 through 24 {
+      &.prefix_#{$i} {
+        grid-column-start: $i + 1;
+      }
+    }
+
+    @for $i from 1 through 24 {
+      &.push_#{$i} {
+        grid-column-start: $i + 1;
+      }
+    }
+
+    @for $i from 1 through 24 {
+      &.pull_#{$i} {
+        grid-column-start: -$i - 1;
+      }
+    }
+  }
+}
