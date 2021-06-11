@@ -5,16 +5,16 @@ $baseline-config: (
     (alias: "large", min: 769px, columns: 12, fluid: false, override-container: 0px)
   ),
   zones: (
-    (columns: 12, blocks: (12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1)),
-    (columns: 9, blocks: (9, 8, 7, 6, 5, 4, 3, 2, 1)),
-    (columns: 6, blocks: (6, 4, 3, 2, 1)),
+    (columns: 12, blocks: (12, 9, 6, 3, 1)),
+    (columns: 9, blocks: (9, 6, 3, 1)),
+    (columns: 6, blocks: (6, 3, 1)),
     (columns: 3, blocks: (3))
   ),
-  gutter: 10px,
-  outer-padding: 10px,
-  inner-padding: 0,
+  column-width: 100px,
+  outer-padding: 20px,
+  inner-padding: 10px,
   debug-color: true
 );
 
 // @import "mixins/baseline-loader";
-@import "../src/scss/baseline-loader";
+@import "../src/scss/poc-positioning";

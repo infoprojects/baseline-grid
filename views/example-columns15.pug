@@ -17,10 +17,13 @@ html
           each column in [{ prefix: 9, column: 6 }, 15]
             include includes/grid-blok
         .grid-zone.grid_9
-          each column in [{ prefix: 3, column: 3 }]
+          each column in [{ prefix: 2, column: 3 }, { column: 1 }]
             include includes/grid-blok
         .grid-zone.grid_6
-            each column in [{ column: 3, prefix: 3 }]
+            each column in [{ column: 2, prefix: 1 }, { column: 2, prefix: 1 }]
+              include includes/grid-blok
+        .grid-zone.grid_6
+            each column in [{ column: 2, suffix: 3 }, { column: 1 }]
               include includes/grid-blok
         .grid-zone.grid_15
           each column in [{ column: 3, push: 9 }, { column: 3, pull: 3 }]
