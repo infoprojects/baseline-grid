@@ -1,0 +1,123 @@
+@import "../../scss/mixins/map-to-vars";
+@import "../../scss/mixins/functions";
+@import "../../scss/mixins/debug-colors";
+
+.grid-wrapper {
+  margin: 0 auto;
+}
+
+.grid-container.container_12 {
+  display: grid;
+  gap: 15px;
+  margin: 0 auto;
+
+  .grid-zone {
+    display: grid;
+    gap: 15px;
+  }
+}
+
+.grid-blok.grid_3 {
+  grid-column: auto / span 3;
+}
+
+@each $viewport in map-get($baseline, viewports) {
+  @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
+    $min: map-get($viewport, min);
+    $max: breakpoint-max(map-get($viewport, max));
+    $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
+
+    @media screen and (min-width: $min) and (max-width: $max) {
+      .grid-wrapper {
+        background-color: #0f0;
+
+        .grid-container.container_12 {
+          grid-template-columns: repeat(12, 1fr);
+
+          .grid-zone {
+            &.grid_3 {
+              grid-column: auto / span 3;
+              grid-template-columns: repeat(3, 1fr);
+            }
+
+            &.grid_6 {
+              grid-column: auto / span 6;
+              grid-template-columns: repeat(6, 1fr);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @else if (map-has-key($viewport, max)) {
+    $max: breakpoint-max(map-get($viewport, max));
+    $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
+
+    @media screen and (max-width: $max) {
+      .grid-wrapper {
+        background-color: #f00;
+      }
+
+      .grid-container.container_12 {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-zone {
+          &.grid_3 {
+            grid-column: auto / span 3;
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          &.grid_6 {
+            grid-column: auto / span 3;
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          &.content {
+            grid-row-start: 1;
+          }
+
+          &.aside {
+            grid-row-start: 2;
+          }
+
+          &.navigation {
+            grid-row-start: 3;
+          }
+        }
+      }
+    }
+  }
+
+  @else if (map-has-key($viewport, min)) {
+    $min: map-get($viewport, min);
+    $fluid: map-get($viewport, fluid);
+    $override-width: map-get($viewport, override-container);
+
+    @media screen and (min-width: $min) {
+      .grid-wrapper {
+        background-color: #00f;
+        width: $min;
+      }
+
+      .grid-container.container_12 {
+        grid-template-columns: repeat(12, 1fr);
+        width: $min - $inner-padding * 2;
+
+        .grid-zone {
+          &.grid_3 {
+            grid-column: auto / span 3;
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          &.grid_6 {
+            grid-column: auto / span 6;
+            grid-template-columns: repeat(6, 1fr);
+          }
+        }
+      }
+    }
+  }
+}
