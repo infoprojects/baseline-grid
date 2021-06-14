@@ -1,8 +1,8 @@
 $baseline-config: (
   viewports: (
-    (alias: "small", max: 480px, columns: 3, fluid: true, override-container: 0px),
-    (alias: "medium", min: 481px, max: 768px, columns: 6, fluid: false, override-container: 0px),
-    (alias: "large", min: 769px, columns: 12, fluid: false, override-container: 0px)
+    (alias: "small", max: 480.98px, columns: 3, fluid: true, override-container: 0px),
+    (alias: "medium", min: 481px, max: 1199.98px, columns: 6, fluid: false, override-container: 0px),
+    (alias: "large", min: 1200px, columns: 12, fluid: false, override-container: 0px)
   ),
   zones: (
     (columns: 12, blocks: (12, 9, 6, 3, 1)),
