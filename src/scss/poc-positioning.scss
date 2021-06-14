@@ -8,12 +8,12 @@
 
 .grid-container.container_12 {
   display: grid;
-  gap: 15px;
+  gap: $outer-padding;
   margin: 0 auto;
 
   .grid-zone {
     display: grid;
-    gap: 15px;
+    gap: $outer-padding;
   }
 }
 
@@ -33,7 +33,7 @@
         background-color: #0f0;
 
         .grid-container.container_12 {
-          grid-template-columns: repeat(12, 1fr);
+          grid-template-columns: repeat(6, 1fr);
 
           .grid-zone {
             &.grid_3 {
