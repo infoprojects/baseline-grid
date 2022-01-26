@@ -18,7 +18,8 @@
 }
 
 @mixin grid-nesting($block-column, $zone-columns) {
-  > .grid-element > .grid-edge > .grid-nesting > .grid-blok.grid_#{$block-column} {
+  > .grid-element > .grid-edge > .grid-nesting > .grid-blok.grid_#{$block-column},
+  > .grid-element > .grid-edge > .grid-nesting > * > .grid-blok.grid_#{$block-column} {
     $width: min(100%, percentage($block-column / $zone-columns));
 
     @if $gutter > 0 {
