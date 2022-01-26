@@ -23,7 +23,7 @@
     "gulp-sass": "^4.1.0"
   },
   "resolutions": {
-    "gulp-sass/**/node-sass": "^4.12.0",
+    "gulp-sass/**/node-sass": "^6.0.1",
     "**/kind-of": "^6.0.3",
     "**/lodash": "^4.17.15",
     "**/minimist": "^1.2.5",

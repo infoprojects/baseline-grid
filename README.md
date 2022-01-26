@@ -1,10 +1,15 @@
 # Baseline grid
 
+
+## Node version
+
+16
+
 ## Getting started
 
 ```
 >  yarn
->  gulp
+>  gulp (or npx gulp)
 ```
 
 ## Gulp tasks
