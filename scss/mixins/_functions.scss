@@ -11,8 +11,7 @@
 
   @if $gutter > 0 {
     width: calc(#{$width} - #{$gutter * 2});
-  }
-  @else {
+  } @else {
     width: $width;
   }
 }
@@ -24,8 +23,7 @@
 
     @if $gutter > 0 {
       width: calc(#{$width} - #{$gutter * 2});
-    }
-    @else {
+    } @else {
       width: $width;
     }
   }
@@ -46,5 +44,13 @@
 
 // Based on: https://github.com/twbs/bootstrap/commit/93f51eb0e9c178ab7fb6399c21e3b0e7ba2ed792
 @function breakpoint-max($value) {
-  @return if($value and $value > 0, $value + .98, null);
+  @return if($value and $value > 0, $value + 0.98, null);
+}
+
+@function css-function($function, $values...) {
+  @return $function + unquote("(") + $values + unquote(")");
+}
+
+@function css-min($values...) {
+  @return css-function(min, $values);
 }
