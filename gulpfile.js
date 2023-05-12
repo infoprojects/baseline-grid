@@ -1,7 +1,7 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('node-sass'));
 const config = require('./config.json');
 const path = require('path');
 const paths = config.paths;

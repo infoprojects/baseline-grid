@@ -9,7 +9,7 @@
 
 ```
 >  yarn
->  gulp (or npx gulp)
+>  yarn gulp
 ```
 
 ## Gulp tasks
