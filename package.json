@@ -2,6 +2,9 @@
   "name": "@infoprojects/baseline-grid",
   "version": "1.6.0",
   "description": "Responsive fluid grid system",
+  "files": [
+    "scss"
+  ],
   "scripts": {
     "gulp": "gulp -- ",
     "test": "node scripts/compile-examples.js"
