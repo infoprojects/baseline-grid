@@ -7,8 +7,9 @@
 
 ## Sass compiler
 
-This package is compiled with Dart Sass (`sass`). It is no longer compatible with libsass (`node-sass`),
-which has been deprecated upstream.
+This package requires Dart Sass (`sass`). As of 2.0.0 it is no longer compatible with libsass
+(`node-sass`), which was discontinued upstream in 2020: the stylesheets use `@use` for the built-in
+modules, which libsass never implemented. Move your build to Dart Sass before upgrading.
 
 ## Getting started
 
