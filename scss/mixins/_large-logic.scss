@@ -1,38 +1,41 @@
+@use "sass:map";
+@use "sass:math";
+
 // sass-lint:disable class-name-format
 
 @mixin large-logic($current-columns) {
   .grid-zone {
     @each $push in $pushes {
       &.push_#{$push} {
-        left: percentage($push / $current-columns);
+        left: math.percentage(math.div($push, $current-columns));
       }
     }
 
     @each $pull in $pulls {
       &.pull_#{$pull} {
-        left: -#{percentage($pull / $current-columns)};
+        left: -#{math.percentage(math.div($pull, $current-columns))};
       }
     }
   }
 
   @each $zone in $zones {
-    $zone-columns: map-get($zone, columns);
-    $zone-blocks: map-get($zone, blocks);
+    $zone-columns: map.get($zone, columns);
+    $zone-blocks: map.get($zone, blocks);
 
     .grid-zone {
       &.grid_#{$zone-columns} {
         @each $block in $zone-blocks {
           .grid-blok {
             &.push_#{$block} {
-              left: percentage($block / $zone-columns);
+              left: math.percentage(math.div($block, $zone-columns));
             }
 
             &.pull_#{$block} {
-              left: -#{percentage($block / $zone-columns)};
+              left: -#{math.percentage(math.div($block, $zone-columns))};
             }
 
             &.prefix_#{$block} {
-              $width: percentage($block / $zone-columns);
+              $width: math.percentage(math.div($block, $zone-columns));
 
               @if $gutter > 0 {
                 margin-left: calc(#{$width} + #{$gutter});
@@ -42,7 +45,7 @@
             }
 
             &.suffix_#{$block} {
-              $width: percentage($block / $zone-columns);
+              $width: math.percentage(math.div($block, $zone-columns));
 
               @if $gutter > 0 {
                 margin-right: calc(#{$width} + #{$gutter});

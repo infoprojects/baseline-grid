@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin grid-wrapper {
   max-width: $wrapper-width;
 }
@@ -7,7 +9,7 @@
 }
 
 @mixin grid-blok($block-column, $zone-columns) {
-  $width: min(100%, percentage($block-column / $zone-columns));
+  $width: min(100%, math.percentage(math.div($block-column, $zone-columns)));
 
   @if $gutter > 0 {
     width: calc(#{$width} - #{$gutter * 2});
@@ -20,7 +22,7 @@
 @mixin grid-nesting($block-column, $zone-columns) {
   > .grid-element > .grid-edge > .grid-nesting > .grid-blok.grid_#{$block-column},
   > .grid-element > .grid-edge > .grid-nesting > * > .grid-blok.grid_#{$block-column} {
-    $width: min(100%, percentage($block-column / $zone-columns));
+    $width: min(100%, math.percentage(math.div($block-column, $zone-columns)));
 
     @if $gutter > 0 {
       width: calc(#{$width} - #{$gutter * 2});
@@ -46,5 +48,9 @@
 
 // Based on: https://github.com/twbs/bootstrap/commit/93f51eb0e9c178ab7fb6399c21e3b0e7ba2ed792
 @function breakpoint-max($value) {
-  @return if($value and $value > 0, $value + .98, null);
+  @if $value and $value > 0 {
+    @return $value + .98;
+  }
+
+  @return null;
 }

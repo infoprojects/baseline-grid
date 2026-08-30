@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "sass:math";
+
 @mixin viewport-logic($current-columns) {
   .wrapper_#{$columns-large} {
     @include grid-wrapper;
@@ -8,11 +11,11 @@
   }
 
   @each $zone in $zones {
-    $zone-columns: map-get($zone, columns);
-    $zone-blocks: map-get($zone, blocks);
+    $zone-columns: map.get($zone, columns);
+    $zone-blocks: map.get($zone, blocks);
 
     .grid-zone.grid_#{$zone-columns} {
-      width: min(100%, percentage($zone-columns / $current-columns));
+      width: min(100%, math.percentage(math.div($zone-columns, $current-columns)));
 
       @each $block in $zone-blocks {
         .grid-blok.grid_#{$block} {
