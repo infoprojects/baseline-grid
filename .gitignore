@@ -72,6 +72,8 @@ Thumbs.db
 !.editorconfig
 !.env.example
 !.git-blame-ignore-revs
+!.github/
 !.gitignore
 !.nvmrc
 !.phpcs.xml.dist
+!.yarnrc.yml

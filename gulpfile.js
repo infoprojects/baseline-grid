@@ -1,7 +1,7 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug');
-const sass = require('gulp-sass')(require('node-sass'));
+const sass = require('gulp-sass')(require('sass'));
 const config = require('./config.json');
 const path = require('path');
 const paths = config.paths;
@@ -27,11 +27,7 @@ function buildViews() {
 
 function buildCss() {
   return src(paths.source.scss)
-    .pipe(
-      sass({
-        includePaths: ['node_modules/susy/sass']
-      })
-    )
+    .pipe(sass())
     .pipe(dest(path.join(paths.dest.baseDir, paths.dest.css)))
     .pipe(browserSync.stream());
 }

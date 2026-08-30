@@ -3,7 +3,12 @@
 
 ## Node version
 
-16
+22 or higher.
+
+## Sass compiler
+
+This package is compiled with Dart Sass (`sass`). It is no longer compatible with libsass (`node-sass`),
+which has been deprecated upstream.
 
 ## Getting started
 
@@ -17,6 +22,11 @@
 * `gulp` - run both tasks `views` and `css`
 * `gulp views` - compile pug files into html files
 * `gulp css` - compile scss files into css files
+
+## Tests
+
+`yarn test` compiles every example in `scss/` with Dart Sass and fails if one of them breaks. CI runs the
+same command on every push. Run it before releasing a new version.
 
 ## Simple example
 
@@ -45,11 +55,8 @@ $baseline-default: (
   zones: (
     (columns: 12, blocks: (12, 9, 6, 3))
   ),
+  depth: 1,
   column-width: 80px,
-  grid-mq-small: 480px,
-  grid-mq-medium: 768px,
-  columns-small: 3,
-  columns-medium: 6,
   columns-large: 12,
   pushes: (),
   pulls: (),
@@ -83,11 +90,9 @@ override-container: if set, the container width will be overwritten.
 Zones: for which zones do you need the grid sizes to be calculated
 Per zone: for which blocks do you need the grid sizes to be calculated.
 Column-width: the absolute size of one column. In a 12-columns grid with a column size of 80px, the total width of the container will be 960px;
-Grid-mq-small: media query setting for a small viewport.
-Grid-mq-medium: media query setting for a medium viewport.
-Columns-small: the total columns in a small viewport.
-Columns-medium: the total columns in a medium viewport.
+Depth: how deep `grid-nesting` rules are generated. Set to 0 to skip nesting selectors entirely.
 Columns-large: the total columns in a large viewport.
+Grid-mq-small and grid-mq-medium: media query settings, exposed as the `$grid-mq-small` and `$grid-mq-medium` variables for use in your own stylesheet. Note that these have **no default**: set them in `$baseline-config` or they resolve to `null`.
 Pushes and pulls: the setting to push and pull the grid to the right or left. For example:
 ```pug
 .grid-wrapper.wrapper_12
@@ -103,9 +108,8 @@ Pushes and pulls: the setting to push and pull the grid to the right or left. Fo
         include includes/grid-blok
 ```
 The grid-zone grid_9 will be pushed 3 columns to the right with push_3. And the grid-zone grid_3 will be pulled 9 columns to the left with pull_9. Therefore, in the large viewport you can switch grid-zone grid_9 and grid-zone grid_3 from their places. And because the push and pull setting can only be applied in a large viewport, as soon as the viewport changes to medium, these grids will switch places again. So with the pushes and pulls settings you can visibly manipulate the dom.
-gutter: the space between the columns.
 container-gutter: if set, the total px will be added to the max-width for the grid-wrapper.
-gutter: the total px to calculate the width of a grid-blok. For example if the gutter is set to 0 the width of a grid-blok will be 100%, if the gutter is 7.5, the width will be calculated with calc(100% - 15px). The gutter is the empty space between element's.
+gutter: the empty space between elements, in px, used to calculate the width of a grid-blok. With a gutter of 0 a grid-blok is 100% wide; with a gutter of 7.5 the width becomes calc(100% - 15px).
 outer-padding: padding left and right for grid-element.
 inner-padding: padding left and right for grid-title and grid-inside.
 

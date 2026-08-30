@@ -1,0 +1,22 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: corepack enable && yarn install --immutable
+
+      - name: Compile examples with Dart Sass
+        run: yarn test
