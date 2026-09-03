@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @if $debug-color == true {
   $blok-colors: (
     1: #4ac700,
@@ -28,7 +30,7 @@
 
   @each $i, $color in $blok-colors {
     .grid-blok.grid_#{$i} {
-      background: linear-gradient(135deg, darken($inner-padding-color, 10%) 0%, lighten($inner-padding-color, 30%) 100%);
+      background: linear-gradient(135deg, color.adjust($inner-padding-color, $lightness: -10%) 0%, color.adjust($inner-padding-color, $lightness: 30%) 100%);
       background-color: $inner-padding-color;
 
       .grid-title,
@@ -43,7 +45,7 @@
   }
 
   .grid-zone {
-    background: linear-gradient(135deg, lighten($zone-color, 10%) 0%, darken($zone-color, 30%) 100%);
+    background: linear-gradient(135deg, color.adjust($zone-color, $lightness: 10%) 0%, color.adjust($zone-color, $lightness: -30%) 100%);
     background-color: $zone-color;
   }
 

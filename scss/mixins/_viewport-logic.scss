@@ -1,26 +1,31 @@
-.wrapper_#{$columns-large} {
-  @include grid-wrapper;
-}
+@use "sass:map";
+@use "sass:math";
 
-.container_#{$columns-large} {
-  @include grid-container;
-}
+@mixin viewport-logic($current-columns) {
+  .wrapper_#{$columns-large} {
+    @include grid-wrapper;
+  }
 
-@each $zone in $zones {
-  $zone-columns: map-get($zone, columns);
-  $zone-blocks: map-get($zone, blocks);
+  .container_#{$columns-large} {
+    @include grid-container;
+  }
 
-  .grid-zone.grid_#{$zone-columns} {
-    width: min(100%, percentage($zone-columns / $current-columns));
+  @each $zone in $zones {
+    $zone-columns: map.get($zone, columns);
+    $zone-blocks: map.get($zone, blocks);
 
-    @each $block in $zone-blocks {
-      .grid-blok.grid_#{$block} {
-        @include grid-blok($block, min($zone-columns, $current-columns));
+    .grid-zone.grid_#{$zone-columns} {
+      width: min(100%, math.percentage(math.div($zone-columns, $current-columns)));
 
-        @if $depth > 0 {
-          @each $nested-block in $zone-blocks {
-            @if $nested-block <= $block {
-              @include grid-nesting($nested-block, $block);
+      @each $block in $zone-blocks {
+        .grid-blok.grid_#{$block} {
+          @include grid-blok($block, min($zone-columns, $current-columns));
+
+          @if $depth > 0 {
+            @each $nested-block in $zone-blocks {
+              @if $nested-block <= $block {
+                @include grid-nesting($nested-block, $block);
+              }
             }
           }
         }

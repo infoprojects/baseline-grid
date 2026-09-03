@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @import "map-to-vars";
 @import "init";
 @import "functions";
@@ -8,82 +10,46 @@
 @import "debug-colors";
 @import "grid-nesting";
 
-@each $viewport in map-get($baseline, viewports) {
+@import "viewport-logic";
+@import "large-logic";
 
-  @if (map-has-key($viewport, min) and map-has-key($viewport, max)) {
-    $min: map-get($viewport, min);
-    $max: breakpoint-max(map-get($viewport, max));
-    $fluid: map-get($viewport, fluid);
-    $override-width: map-get($viewport, override-container);
+@each $viewport in map.get($baseline, viewports) {
+  $current-columns: map.get($viewport, columns);
+  $fluid: map.get($viewport, fluid);
+  $override-width: map.get($viewport, override-container);
+
+  @if $fluid == true {
+    $wrapper-width: 100% !global;
+    $container-width: 100% !global;
+  } @else if $fluid == false {
+    @if $override-width > 0 {
+      $container-width: $override-width !global;
+      $wrapper-width: $container-width + $container-gutter * 2 !global;
+    } @else {
+      $container-width: $current-columns * $column-width !global;
+      $wrapper-width: $container-width + $container-gutter * 2 !global;
+    }
+  }
+
+  @if (map.has-key($viewport, min) and map.has-key($viewport, max)) {
+    $min: map.get($viewport, min);
+    $max: breakpoint-max(map.get($viewport, max));
 
     @media screen and (min-width: $min) and (max-width: $max) {
-      $current-columns: map-get($viewport, columns);
-      @if $fluid == true {
-        $wrapper-width: 100%;
-        $container-width: 100%;
-      }
-      @else if $fluid == false {
-        @if $override-width > 0 {
-          $container-width: $override-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-        @else {
-          $container-width: $current-columns * $column-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-      }
-      @import "viewport-logic";
+      @include viewport-logic($current-columns);
     }
-  }
-  @else if (map-has-key($viewport, max)) {
-    $max: breakpoint-max(map-get($viewport, max));
-    $fluid: map-get($viewport, fluid);
-    $override-width: map-get($viewport, override-container);
+  } @else if (map.has-key($viewport, max)) {
+    $max: breakpoint-max(map.get($viewport, max));
 
     @media screen and (max-width: $max) {
-      $current-columns: map-get($viewport, columns);
-
-      @if $fluid == true {
-        $wrapper-width: 100%;
-        $container-width: 100%;
-      }
-      @else if $fluid == false {
-        @if $override-width > 0 {
-          $container-width: $override-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-        @else {
-          $container-width: $current-columns * $column-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-      }
-      @import "viewport-logic";
+      @include viewport-logic($current-columns);
     }
-  }
-  @else if (map-has-key($viewport, min)) {
-    $min: map-get($viewport, min);
-    $fluid: map-get($viewport, fluid);
-    $override-width: map-get($viewport, override-container);
+  } @else if (map.has-key($viewport, min)) {
+    $min: map.get($viewport, min);
 
     @media screen and (min-width: $min) {
-      $current-columns: map-get($viewport, columns);
-
-      @if $fluid == true {
-        $wrapper-width: 100%;
-        $container-width: 100%;
-      }
-      @else if $fluid == false {
-        @if $override-width > 0 {
-          $container-width: $override-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-        @else {
-          $container-width: $current-columns * $column-width;
-          $wrapper-width: $container-width + $container-gutter * 2;
-        }
-      }
-      @import "viewport-logic";
-      @import "large-logic";
+      @include viewport-logic($current-columns);
+      @include large-logic($current-columns);
     }
   }
 }

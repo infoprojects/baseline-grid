@@ -1,9 +1,13 @@
 {
   "name": "@infoprojects/baseline-grid",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Responsive fluid grid system",
+  "files": [
+    "scss"
+  ],
   "scripts": {
-    "gulp": "gulp -- "
+    "gulp": "gulp -- ",
+    "test": "node scripts/compile-examples.js"
   },
   "repository": {
     "type": "git",
@@ -17,10 +21,13 @@
   "homepage": "https://github.com/infoprojects/baseline-grid#readme",
   "devDependencies": {
     "browser-sync": "^2.29.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-pug": "^5.0.0",
-    "gulp-sass": "^5.1.0",
-    "node-sass": "^8.0.0"
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.92.1"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "packageManager": "yarn@3.5.0"
 }

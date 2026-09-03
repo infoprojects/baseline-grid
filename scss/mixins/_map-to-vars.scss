@@ -1,29 +1,31 @@
+@use "sass:map";
+
 @import "baseline-default";
 
-$baseline: map-merge($baseline-default, $baseline-config);
+$baseline: map.merge($baseline-default, $baseline-config);
 
-$zones: map-get($baseline, zones);
-$depth: map-get($baseline, depth);
+$zones: map.get($baseline, zones);
+$depth: map.get($baseline, depth);
 
-$column-width: map-get($baseline, column-width);
+$column-width: map.get($baseline, column-width);
 
-$grid-mq-small: map-get($baseline, grid-mq-small);
-$grid-mq-medium: map-get($baseline, grid-mq-medium);
+$grid-mq-small: map.get($baseline, grid-mq-small);
+$grid-mq-medium: map.get($baseline, grid-mq-medium);
 
-$viewports: map-get($baseline, viewports);
+$viewports: map.get($baseline, viewports);
 
-$columns-large: map-get($baseline, columns-large);
+$columns-large: map.get($baseline, columns-large);
 
-$pushes: map-get($baseline, pushes);
-$pulls: map-get($baseline, pulls);
+$pushes: map.get($baseline, pushes);
+$pulls: map.get($baseline, pulls);
 
-$container-gutter: map-get($baseline, container-gutter);
+$container-gutter: map.get($baseline, container-gutter);
 
-$gutter: map-get($baseline, gutter);
-$outer-padding: map-get($baseline, outer-padding);
-$inner-padding: map-get($baseline, inner-padding);
+$gutter: map.get($baseline, gutter);
+$outer-padding: map.get($baseline, outer-padding);
+$inner-padding: map.get($baseline, inner-padding);
 
-$debug-color: map-get($baseline, debug-color);
+$debug-color: map.get($baseline, debug-color);
 
 $container-width: 0px;
 $wrapper-width: 0px;

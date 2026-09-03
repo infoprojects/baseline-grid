@@ -1,7 +1,9 @@
+@use "sass:map";
+
 // Error handling
 @each $zone in $zones {
-  $zone-columns: map-get($zone, columns);
-  $zone-blocks: map-get($zone, blocks);
+  $zone-columns: map.get($zone, columns);
+  $zone-blocks: map.get($zone, blocks);
 
   @each $check in $zone-blocks {
     @if $check > $zone-columns {
